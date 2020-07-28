@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magecomp" translate="label" sortOrder="100" class="magecomp-logo">
+            <label><![CDATA[]]></label>
+        </tab>
+        <section id="instagramshoppable" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Instagram Shoppable</label>
+            <tab>magecomp</tab>
+            <resource>Magecomp_Instagramshoppable::config_instagramshoppable</resource>
+            <group id="module_options" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Instagram Shoppable Settings</label>
+                <field id="enabled" translate="label" sortOrder="10" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Shoppable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="homepage" translate="label comment" sortOrder="20" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Images on Home Page</label>
+                    <comment>
+                        <![CDATA[ Put Code on CMS Home Page : {{block class="Magecomp\Instagramshoppable\Block\Homepage" template="Magecomp_Instagramshoppable::instagramshoppable/homepage.phtml"}} to show images]]></comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="homepage_limit" translate="label comment" sortOrder="30" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. of Images to show on Home Page</label>
+                    <comment>Enter number of images to show on home page, leave blank or empty for unlimited images.
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="homepage">1</field>
+                    </depends>
+                </field>
+                <field id="product" translate="label comment" sortOrder="40" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Images on Product Pages</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="product_limit" translate="label comment" sortOrder="50" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. of Images to show on Product Page</label>
+                    <comment>Enter number of images to show on product pages, leave blank or empty for unlimited
+                        images.
+                    </comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="product">1</field>
+                    </depends>
+                </field>
+                <field id="product_more" translate="label comment" sortOrder="60" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>In More View Section</label>
+                    <comment>Enabling will show Instagram images in product more view section.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="product">1</field>
+                    </depends>
+                </field>
+                <field id="product_detail" translate="label comment" sortOrder="70" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>In Product Detail Section</label>
+                    <comment>Enabling will show Instagram images in product detail section.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="product">1</field>
+                    </depends>
+                </field>
+                <field id="redirecturi" translate="label comment" sortOrder="80" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Redirect URL</label>
+                    <comment>Redirect URL for Instagram App registration.</comment>
+                    <frontend_model>Magecomp\Instagramshoppable\Block\Adminhtml\System\Config\Form\Field\Redirecturl</frontend_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="client_id" translate="label comment" sortOrder="90" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Client ID</label>
+                    <comment><![CDATA[<strong><span style="color: #000;">Register Here : https://instagram.com/developer</span></strong><br />Enter Your Instagram client ID given by Instagram App while registration]]></comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="access_token" translate="label comment" sortOrder="100" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram Access Token</label>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="updatetype" translate="label" sortOrder="110" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Update Images By</label>
+                    <source_model>Magecomp\Instagramshoppable\Model\Source\Updatetype</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="tags" translate="label comment" sortOrder="120" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hashtags</label>
+                    <comment>Enter comma-separated list of hashtags</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="updatetype">0</field>
+                    </depends>
+                </field>
+                <field id="users" translate="label comment" sortOrder="130" type="textarea" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Users</label>
+                    <frontend_model>Magecomp\Instagramshoppable\Block\System\Config\Form\Field\Disable</frontend_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="updatetype">1</field>
+                    </depends>
+                </field>
+                <field id="imagefatch" translate="label comment" sortOrder="140" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. of Images to Fetch</label>
+                    <comment>Enter number of images to fetch, leave blank or empty for max 100 images.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="shownp" translate="label comment" sortOrder="150" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Navigation in Image Popup</label>
+                    <comment>Enabling will allow navigation between images in popup.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="displayproduct" translate="label comment" sortOrder="160" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Popup With</label>
+                    <source_model>Magecomp\Instagramshoppable\Model\Source\Popuptype</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="imagecount" translate="label comment" sortOrder="170" type="text" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>No. of Images to Show on Instagram Page</label>
+                    <comment>Enter number of images to show on Instagram page, leave blank or empty for unlimited
+                        images.
+                    </comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

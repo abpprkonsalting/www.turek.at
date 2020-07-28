@@ -1,0 +1,443 @@
+.instagramshoppable-view
+{
+  div,&.clearer{
+    float:left;
+  }
+  div
+  {
+    margin:10px;
+  }
+  &.clearer
+  {
+    width: 100%;
+  }
+  #mainimgdiv {
+    float: left;
+    margin: 0 2% 15px 0;
+    overflow: hidden;
+    position: relative;
+    width: 23.5%;
+    img {
+      height: 100%;
+      width: 100%;
+    }
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    .hoverp {
+      background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      height: 98.2%;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      a
+      {
+        text-decoration:none;
+        color:#fff !important;
+        font-family:"Open Sans",sans-serif !important;
+        font-size:15px;
+        height: 100%; width:100%;
+        overflow: hidden;
+        text-decoration: none;
+        display:inline-block; text-align:center;
+      }
+      #innerdiv {
+        cursor: pointer;
+        display: inline-block;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        text-align: center;
+        width: 100%;
+        & > span
+        {
+          font-size: 20px;
+          padding-top: 45%;
+        }
+        & > #imagecomments {
+          float: right;
+          margin-right: 40px;
+          & > .fa.fa-comment
+          {
+            margin-right:5px;
+          }
+        }
+        & > #imagelikes {
+          float: left;
+          margin-left: 40px;
+          & > .fa.fa-heart
+          {
+            margin-right:5px;
+          }
+        }
+      }
+    }
+  }
+}
+.instagramshoppableshow { display:block !important; }
+#backgrounddiv {
+  #whitebgdiv {
+    #leftpart {
+      float: left;
+      width: 50%;
+      .fa.fa-arrow-circle-left {
+        color: #fff;
+        font-size: 30px;
+        left: 10px;
+        position: absolute;
+        top: 48%;
+        cursor:pointer;
+      }
+      .fa.fa-arrow-circle-right {
+        color: #fff;
+        font-size: 30px;
+        right: 10px;
+        position: absolute;
+        top: 48%;
+        cursor:pointer;
+      }
+      img {
+        background-color: #fff;
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+        height: 100%;
+      }
+      & > video {
+        width: 100%;
+      }
+      span {
+        position: absolute;
+      }
+      #titletext {
+        border-radius: 6px;
+        transition: all 1s ease 0s;
+        & > a
+        {
+          text-decoration:none;color:#fff;
+          &:hover
+          {
+            text-decoration:none;color:#fff
+          }
+          .number
+          {
+            background: rgba(0, 0, 0, 0) url("../images/instagramshoppable/hotspot.png") no-repeat scroll 0 0 / 30px 33px;
+            float: left;
+            height: 33px;
+            text-align: center;
+            width: 30px;
+            left: -16px;
+            position: absolute;
+            top: 0;
+          }
+          .numbertitle
+          {
+            background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+            border: 1px solid;
+            float: left;
+            padding: 4px 10px;
+          }
+        }
+      }
+    }
+    #rightpart {
+      float: left;
+      width: 50%;
+      .main-user-div {
+        border-bottom: 1px solid #000;
+        height: 60px;
+        width: 100%;
+        .user {
+          margin: 0 auto;
+          padding: 10px 0px;
+          text-align: center;
+          width: 100%;
+          .userimage {
+            display: inline-table;
+            vertical-align: middle;
+            img {
+              border: 1px solid;
+              border-radius: 50px;
+              height: 34px;
+              padding: 2px;
+              width: 34px;
+            }
+          }
+          .userlink {
+            display: inline-table;
+            font-size: 20px;
+            line-height: 40px;
+            margin-left: 10px;
+            vertical-align: middle; height:40px;
+          }
+        }
+      }
+      ul {
+        border-bottom: 1px solid #000;
+        clear: both;
+        padding: 15px 0;
+        &.prditem
+        {
+          li{
+            border: 1px solid #e2e2e2;
+            display: inline-table;
+            height: 142px;
+            margin-bottom: 15px;
+            margin-right: 2%;
+            margin-top:0;
+            padding:0;
+            width: 31% !important;
+            &:nth-child(3n) {
+              margin-right: 0;
+            }
+            a.prdblocka
+            {
+              img
+              {
+                border-bottom: 1px solid #e2e2e2;
+                width: 100%;
+                float:left;
+              }
+              span {
+                float: left;
+                font-size: 11px;
+                height: 30px;
+                overflow: hidden;
+                padding: 5px;
+                width: calc(100% - 10px);
+              }
+            }
+            div
+            {
+              display:none;
+            }
+            &:hover
+            {
+                background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                box-shadow: 4px 7px 15px 0 rgba(0, 0, 0, 0.23);
+                a
+                {
+                  span
+                  {
+                    color: #000 !important;
+                  }
+                }
+            }
+          }
+        }
+        li
+        {
+          clear: both;
+          cursor: pointer;
+          display: inline-table;
+          font-family: open sans;
+          font-size: 14px;
+          margin: 5px 0;
+          padding: 15px 30px;
+          text-align: left;
+          transition: all 1s ease 0s;
+          width: calc(100% - 60px);
+          &:hover
+          {
+            background: rgba(255, 255, 255, 0.74) none repeat scroll 0 0;
+            border: 1px solid #e2e2e2;
+            box-shadow: 2px 5px 7px 0 rgba(0, 0, 0, 0.23);
+            a
+            {
+              span
+              {
+                background-color: transparent !important;
+                color: #67c6ed !important;
+              }
+            }
+          }
+          a
+          {
+            &:hover {
+              text-decoration: none;
+            }
+            span {
+              color: #000000 !important;
+              font-weight: 500;
+              vertical-align: middle;
+              &.number
+              {
+                color:#fff !important;
+                height:20px;
+                width:20px;
+                display:inline-block;
+                background-color: #222;
+                border-radius: 50%;
+                text-align:center;
+                display:none;
+              }
+            }
+          }
+        }
+      }
+      #instatitle
+      {
+        color: #222;
+        font-style: italic;
+        font-family: Times New Roman,serif;
+        font-weight: 300;
+        letter-spacing: 0.01em;
+        text-align:left;
+        font-size:17px;
+        margin-left:20px;
+        margin-top:10px;
+        p,strong,span,label,em
+        {
+          color:#222 !important;
+          font-family: Times New Roman,serif !important;
+          font-size:17px;
+        }
+      }
+      #cntbtndiv
+      {
+        #userdatadiv
+        {
+          float: left;
+          margin-left: 15%;
+          img
+          {
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            height: 36px;
+            width: 36px;
+            float:left;
+          }
+          a
+          {
+            margin-left:10px;
+            font-size:23px;
+            &:hover
+            {
+              text-decoration:none;
+            }
+          }
+        }
+      }
+    }
+    #prevbtndiv {
+      background: rgba(0, 0, 0, 0) url("../images/instagramshoppable/instaprev.png") no-repeat scroll 0 0;
+      cursor: pointer;
+      float: left;
+      height: 50px;
+      left: -51px;
+      position: absolute;
+      top: 47%;
+      width: 50px;
+    }
+    #nextbtndiv
+    {
+      height:50px;
+      width:50px;
+      float:left;
+      background:url("../images/instagramshoppable/instanext.png") scroll 0 0 no-repeat;
+      cursor:pointer;
+      right: -60px;
+      position: absolute;
+      top: 47%;
+    }
+  }
+}
+#instagramshoppable_category
+{
+  clear:both;
+  img
+  {
+    float:left; height:100px; margin:0 10px 10px 0;
+  }
+  #cleardiv
+  {
+    clear:both; height:15px;
+  }
+}
+.instashoppable
+{
+  .modal-inner-wrap
+  {
+    overflow: hidden;
+    display: inline-table;
+  }
+}
+@media only screen and (max-width: 680px)
+{
+  .instagramshoppable-view
+  {
+    #mainimgdiv
+    {
+      .hoverp
+      {
+        #innerdiv
+        {
+          & > #imagelikes
+          {
+            margin-left: 10px;
+          }
+          & > #imagecomments
+          {
+            margin-right:10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 640px)
+{
+  #backgrounddiv
+  {
+    #whitebgdiv
+    {
+      max-width: 90%;
+      #prevbtndiv {  left: -7px;  z-index: 9999;  }
+      #nextbtndiv {  right: 10px; z-index:9999;  }
+      #leftpart
+      {
+        width:100%;
+        #titletext {  display:none;  }
+      }
+      #rightpart{width:100%}
+    }
+  }
+}
+@media only screen and (max-width: 480px)
+{
+  .instagramshoppable-view
+  {
+    #mainimgdiv
+    {
+      .hoverp
+      {
+        #innerdiv
+        {
+          & > span {  padding-top:15%;  }
+          & > #imagelikes { margin-left:35%; }
+          & > #imagecomments { float:left; margin-left:35%; }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width:400px)
+{
+  #backgrounddiv
+  {
+    #whitebgdiv
+    {
+      #prevbtndiv,#nextbtndiv {  top: 150px;  }
+    }
+  }
+}
+@media only screen and (max-width: 360px)
+{
+  .instagramshoppable-view #mainimgdiv .hoverp #innerdiv > span { padding-top:10%; }
+}

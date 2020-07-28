@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid_data_source</item>
+            <item name="deps" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">instagramshoppable_shoppableindex_columns</item>
+    </argument>
+	<dataSource name="instagramshoppable_shoppableindex_grid_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">instagramshoppable_shoppableindex_grid_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">image_id</argument>            
+            <argument name="requestFieldName" xsi:type="string">id</argument>            
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">image_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+	<listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+            </item>
+        </argument>
+		<bookmark name="bookmarks">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="namespace" xsi:type="string">instagramshoppable_shoppableindex_grid</item>
+                    </item>
+                </item>
+            </argument>
+        </bookmark>
+		<component name="columns_controls">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsData" xsi:type="array">
+                        <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_columns</item>
+                    </item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
+                    <item name="displayArea" xsi:type="string">dataGridActions</item>
+                </item>
+            </argument>
+        </component>
+		<filterSearch name="fulltext">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid_data_source</item>
+                    <item name="chipsProvider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.listing_top.listing_filters_chips</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.search</item>
+                    </item>
+                </item>
+            </argument>
+        </filterSearch>
+		<filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsProvider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_columns</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
+					<item name="templates" xsi:type="array">
+                        <item name="filters" xsi:type="array">
+                            <item name="select" xsi:type="array">
+                                <item name="component" xsi:type="string">Magento_Ui/js/form/element/ui-select</item>
+                                <item name="template" xsi:type="string">ui/grid/filters/elements/ui-select</item>
+                            </item>
+                        </item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_grid.instagramshoppable_shoppableindex_columns.${ $.index }:visible</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+    <columns name="instagramshoppable_shoppableindex_columns">
+        <column name="instagramshoppable_image_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="sorting" xsi:type="string">desc</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+					<item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+        </column>
+		<column name="thumbnail_url" class="Magecomp\Instagramshoppable\Ui\Component\Listing\Column\Thumbnail">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
+					<item name="sortable" xsi:type="boolean">false</item>
+					<item name="altField" xsi:type="string">caption_text</item>
+					<item name="has_preview" xsi:type="string">1</item>
+					<item name="label" xsi:type="string" translate="true">Image</item>
+					<item name="sortOrder" xsi:type="number">20</item>
+				</item>
+			</argument>
+		</column>
+		<column name="image_link">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Link</item>
+					<item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+        </column>
+		<column name="image_title">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Title</item>
+					<item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+        </column>
+		<column name="image_desc">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+					<item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+        </column>
+		<column name="tag">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">User / Hashtag</item>
+					<item name="sortOrder" xsi:type="number">60</item>
+                </item>
+            </argument>
+        </column>
+		<actionsColumn name="actions" class="Magecomp\Instagramshoppable\Ui\Component\Listing\Column\Editimage">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">image_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
+    </columns>
+</listing>

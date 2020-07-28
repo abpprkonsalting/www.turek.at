@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Instagram Shoppable</title>
+        <css src="Magecomp_Instagramshoppable::css/fb/fae.css"/>
+        <script src="Magecomp_Instagramshoppable::js/fb/lib/Modal.js" />
+        <script src="Magecomp_Instagramshoppable::js/fb/lib/IEOverlay.js" />
+        <script src="Magecomp_Instagramshoppable::js/fb/lib/utils.js" />
+        <script src="Magecomp_Instagramshoppable::js/fb/fae.js" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magecomp\Instagramshoppable\Block\Adminhtml\Synctofb" template="Magecomp_Instagramshoppable::instagramshoppable/synctofb.phtml" name="synctofb"/>
+        </referenceContainer>
+    </body>
+</page>

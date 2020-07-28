@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+  <head>
+	<css src="Magecomp_Instagramshoppable::css/fontawesome/css/font-awesome.min.css"/>
+    <css src="Magecomp_Instagramshoppable::css/instagramshoppable.css"/>
+  </head>
+  <body>
+  	<referenceBlock name="header.links">
+        <block class="Magento\Framework\View\Element\Html\Link" name="instalink" after="register-link" ifconfig="instagramshoppable/module_options/enabled">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Instagram Page</argument>
+                <argument name="path" xsi:type="string" translate="false">instagramshoppable/gallery/instalist</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+	<referenceBlock name="footer_links">
+        <block class="Magento\Framework\View\Element\Html\Link\Current" name="instaflink" ifconfig="instagramshoppable/module_options/enabled">
+            <arguments>
+                <argument name="label" xsi:type="string" translate="true">Instagram Page</argument>
+                <argument name="path" xsi:type="string">instagramshoppable/gallery/instalist</argument>
+            </arguments>
+        </block>
+    </referenceBlock>
+  </body>
+</page>

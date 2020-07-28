@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+  <menu>
+    <add id="Magecomp_Instagramshoppable::instagramshoppable" resource="Magecomp_Instagramshoppable::instagramshoppable" module="Magecomp_Instagramshoppable" title="Instagram Shoppable" sortOrder="20"/>
+    <add id="Magecomp_Instagramshoppable::instagramshoppablenewimage" resource="Magecomp_Instagramshoppable::instagramshoppablenewimage" module="Magecomp_Instagramshoppable" title="New Images" sortOrder="10" action="instagramshoppable/instagramshoppable/new/" parent="Magecomp_Instagramshoppable::instagramshoppable"/>
+    <add id="Magecomp_Instagramshoppable::instagramshoppableapprovedimage" resource="Magecomp_Instagramshoppable::instagramshoppablebackendapprovedimage" module="Magecomp_Instagramshoppable" title="Approved Images" sortOrder="20" action="instagramshoppable/instagramshoppable/approved" parent="Magecomp_Instagramshoppable::instagramshoppable"/>
+    <add id="Magecomp_Instagramshoppable::instagramshoppableimglinkdata" resource="Magecomp_Instagramshoppable::instagramshoppableimglinkdata" module="Magecomp_Instagramshoppable" title="Approved Images Manager" sortOrder="30" action="instagramshoppable/shoppableindex/index" parent="Magecomp_Instagramshoppable::instagramshoppable"/>
+    <add id="Magecomp_Instagramshoppable::instagramshoppable_facebook_ads" resource="Magecomp_Instagramshoppable::instagramshoppable_facebook_ads" module="Magecomp_Instagramshoppable" title="Sync Product To Facebook" sortOrder="40" action="instagramshoppable/synctofb/index" parent="Magecomp_Instagramshoppable::instagramshoppable"/>
+    <add id="Magecomp_Instagramshoppable::instagramshoppablesetting" resource="Magecomp_Instagramshoppable::config_instagramshoppable" module="Magecomp_Instagramshoppable" title="Configuration" sortOrder="50" action="adminhtml/system_config/edit/section/instagramshoppable" parent="Magecomp_Instagramshoppable::instagramshoppable"/>
+  </menu>
+</config>

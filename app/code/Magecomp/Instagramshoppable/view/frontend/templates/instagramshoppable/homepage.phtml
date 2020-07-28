@@ -1,0 +1,171 @@
+<?php
+if ($block->showInstagramshoppableImages()) : ?>
+<div class="instagramshoppable-view clearer">
+	<?php 
+	$count = 0; 
+	$linkurl = "javascript:void(0);";
+	foreach ($block->getInstagramshoppableGalleryImages() as $_image):
+	$count++; 
+	$id = $_image->getImageId();
+	$imagetitle = $_image->getImageTitle(); ?>
+        <div id="mainimgdiv">
+        	<?php if( $_image->getMediaType() == "image"){ ?> 
+            <a href="<?php echo $linkurl; ?>" target="_blank">
+            <img src="<?php echo $_image->getThumbnailUrl(); ?>" alt="<?php echo $imagetitle; ?>" title="<?php echo $imagetitle; ?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);" />
+            </a>
+            <div class="hoverp" id="<?php echo "phover".$count?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+            	<div id="innerdiv">
+                    <span id="imagelikes"><i class="fa fa-heart" aria-hidden="true"></i><?php echo $_image->getImageLikes(); ?></span>
+                    <span id="imagecomments"><i class="fa fa-comment" aria-hidden="true"></i><?php echo $_image->getImageComments(); ?></span>
+                </div>
+            </div>
+            <input type="hidden" name="<?php echo 'curimageid'.$count;?>" id="<?php echo 'curimageid'.$count;?>" value="<?php echo $id?>" />
+             <?php } else { ?>
+              <a href="<?php echo $linkurl; ?>" target="_blank">
+	             <video width="100%"  controls onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+                	<source src="<?php echo $_image->getThumbnailUrl(); ?>" type="video/mp4">
+                	Your browser does not support the video tag.
+                </video>
+                </a>
+                 <div class="hoverp" id="<?php echo "phover".$count?>" onmouseover="showinstadesc(<?php echo $count ?>);" onmouseout="hideinstadesc(<?php echo $count ?>);">
+            	<div id="innerdiv">
+                	<span id="imagelikes"><i class="fa fa-heart" aria-hidden="true"></i><?php echo $_image->getImageLikes();?></span>
+                    <span id="imagecomments"><i class="fa fa-comment" aria-hidden="true"></i><?php echo $_image->getImageComments(); ?></span>
+                </div>
+            </div>
+            <input type="hidden" name="<?php echo 'curimageid'.$count;?>" id="<?php echo 'curimageid'.$count;?>" value="<?php echo $id?>" />
+            <?php } ?>
+        </div>
+    <?php endforeach; ?>
+</div>
+<input type="hidden" name="curimage" id="curimage" value="0" />
+<div id="popupdiv">
+	<div id="backgrounddiv">
+        <div id="whitebgdiv"></div>
+	</div>
+</div>
+
+<script type="text/javascript">
+function showinstadesc(Id)
+{
+	jQuery("#phover"+Id).addClass('instagramshoppableshow');
+}
+function hideinstadesc(Id)
+{
+	jQuery("#phover"+Id).removeClass('instagramshoppableshow');
+}
+function showpopupaction(ImgId,ImgNum)
+{
+	jQuery('#curimage').val(ImgNum);
+	var formurl = '<?php echo $block->getPopupUrl(); ?>';
+	jQuery.ajax({
+			  type: "POST",
+			  url: formurl,
+			   showLoader:true,
+			  data: {Id: ImgId},
+			  success: function(transport) 
+			  {
+				  jQuery("#backgrounddiv").modal("openModal");
+				  var response = transport || "no response text";
+				  jQuery('#backgrounddiv').html(response);
+				  //effact on popup js code 
+					jQuery('.alltitleul > li').hover(function (e){
+						var classname = jQuery(this).attr('class');
+						var xy = classname.split('-');
+						<?php if($block->showProductInPopup()) : ?>
+							jQuery('#titletext').html(jQuery(this).find('div').html());
+						<?php else : ?>
+							jQuery('#titletext').html(jQuery(this).html());
+						<?php endif; ?>
+						jQuery('#titletext').css('top',xy[0]+'px');
+						jQuery('#titletext').css('left',xy[1]+'px');
+					});
+					jQuery('.alltitleul > li').mouseleave(function (e){
+						jQuery('#titletext').html('');
+					});
+					 slideIndex = 1;
+					 showDivs(slideIndex);
+			  },
+			  error: function() 
+			  {
+				  alert('Something went wrong...'); 
+			  }
+	  });
+}
+function prevnextpopup(Acn)
+{
+	var curimg = parseInt(jQuery('#curimage').val());
+	if(Acn == 1)// Prev
+	{
+		curimg = curimg - 1;
+		if(curimg <= 0)
+		{
+			curimg = <?php echo $count ?>;	
+		}
+		
+	} else // Next
+	{
+		curimg = curimg + 1;
+		if(curimg > <?php echo $count ?>)
+		{
+			curimg = 1;	
+		}
+	}
+	var ImgId = jQuery('#curimageid'+curimg).val();
+	showpopupaction(ImgId,curimg);
+}
+var slideIndex = 1;
+function plusDivs(n) 
+{
+	showDivs(slideIndex += n);
+}
+function showDivs(n) 
+{
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length} ;
+  for (i = 0; i < x.length; i++) {
+	  x[i].style.display = "none";
+  }
+  if (x.length > 0) 
+  {
+	  x[slideIndex-1].style.display = "block";
+  }
+  if(slideIndex==1)
+  {
+	  jQuery("#titletext").show();
+  }
+  else
+  {
+	 jQuery("#titletext").hide();
+  }
+}
+require(
+	[
+		'jquery',
+		'Magento_Ui/js/modal/modal'
+	],
+	function(
+		$,
+		modal
+	) {
+		var options = {
+			type: 'popup',
+			responsive: true,
+			innerScroll: false,
+			modalClass: 'instashoppable',
+			buttons: []
+		};
+		var popup = modal(options, $('#backgrounddiv'));
+		$(".hoverp").on('click',function()
+		{
+			var curimg = parseInt($(this).attr('id').substr(-1));
+			var ImgId = $('#curimageid'+curimg).val();
+			showpopupaction(ImgId,curimg);
+		});
+
+	}
+);
+</script>
+<?php endif; ?>

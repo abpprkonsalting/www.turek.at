@@ -1,0 +1,217 @@
+<?php
+namespace Magecomp\Instagramshoppable\Model;
+
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\Stdlib\DateTime\DateTimeFactory;
+use Magecomp\Instagramshoppable\Helper\Data;
+use Magecomp\Instagramshoppable\Model\Productfeed;
+
+class Observer
+{
+    const FORMAT_DATE = 'Y-m-d H:i:s';
+    protected $dateTimeFactory;
+    protected $scopeConfig;
+    protected $helper;
+    protected $productFeed;
+
+    public function __construct(ScopeConfigInterface $scopeConfig,DateTimeFactory $dateTimeFactory,Productfeed $productFeed,Data $helper)
+    {
+        $this->scopeConfig = $scopeConfig;
+        $this->dateTimeFactory = $dateTimeFactory;
+        $this->helper = $helper;
+        $this->productFeed = $productFeed;
+    }
+    public function internalGenerateProductFeed($throwException = false, $checkCache = true)
+    {
+        $this->maybeSetPixelInstallTime();
+        $time_start = time();
+        $supportzip = extension_loaded('zlib');
+
+        $feed = $this->getFeedObject();
+
+        $feed_target_file_path = $feed->getTargetFilePath($supportzip);
+
+        $format ='TSV';
+
+        if ($checkCache)
+
+        {
+
+            $isstale = $feed->cacheIsStale($supportzip);
+
+            $lock_status = $this->_isFileStaleLockedForFeedPath($feed_target_file_path);
+
+            if (($lock_status ==  'no_lock') && !$isstale) {
+
+                $time_end = time();
+
+                $this->productFeed->log(
+
+                    sprintf(
+
+                        'feed files are fresh and complete, skip generation, '.
+
+                        'time used: %d seconds',
+
+                        ($time_end - $time_start)));
+
+                return array($format, $feed, $supportzip);
+
+            } else if ($lock_status == 'fresh_lock') {
+
+                if ($throwException) {
+
+                    throw new Exception(
+
+                        sprintf('Lock is fresh, generation must be in process.')
+
+                    );
+
+                } else {
+
+                    $this->productFeed->log(
+
+                        sprintf('Lock is fresh, generation must be in process.')
+
+                    );
+
+                    return;
+
+                }
+
+            }
+
+        }
+
+        try {
+
+            $this->_createFileLockForFeedPath($feed_target_file_path);
+
+            $feed->save();
+
+            if ($supportzip) {
+
+                $feed->saveGZip();
+
+            }
+
+        } catch (\Exception $e) {
+
+            $this->productFeed->log(sprintf(
+
+                'Caught exception: %s. %s', $e->getMessage(), $e->getTraceAsString()
+
+            ));
+
+            if ($throwException) {
+
+                throw $e;
+
+            }
+
+            return;
+
+        }
+
+        $this->_removeFileLockForFeedPath($feed_target_file_path);
+
+
+
+        $time_end = time();
+
+        $feed_gen_time = ($time_end - $time_start);
+
+        $this->productFeed->log(
+
+            sprintf(
+
+                'feed generation finished, time used: %d seconds',
+
+                $feed_gen_time));
+
+
+
+        // Update feed generation online time estimate w/ 25% decay.
+
+
+
+        $old_feed_gen_time = $this->helper->getFeedRuntimeAverage();
+
+        if ($feed_gen_time < $old_feed_gen_time) {
+
+            $feed_gen_time = $feed_gen_time * 0.25 + $old_feed_gen_time * 0.75;
+
+        }
+
+        $this->helper->setFeedRuntimeAverage($feed_gen_time);
+
+        return array($format, $feed, $supportzip);
+
+    }
+
+    public function maybeSetPixelInstallTime()
+
+    {
+
+        $pixel_install_time = $this->helper->getPixelInstallTime();
+
+        if (!$pixel_install_time)
+
+        {
+
+            $currDate =  $this->dateTimeFactory->create()->gmtDate(self::FORMAT_DATE);
+
+            $this->helper->setPixelInstallTime($currDate);
+
+        }
+
+    }
+
+    public function _isFileStaleLockedForFeedPath($feedpath)
+
+    {
+
+        $lock_path = $feedpath.'.lck';
+
+        if (file_exists($lock_path)) {
+
+            if ($this->productFeed->fileIsStale($lock_path)) {
+
+                return 'stale_lock';
+
+            } else {
+
+                return 'fresh_lock';
+
+            }
+
+        } else {
+
+            return 'no_lock';
+
+        }
+
+    }
+
+    public function _createFileLockForFeedPath($feedpath) {
+        $writer = new \Zend\Log\Writer\Stream(BP . '/var/log/test.log');
+        $logger = new \Zend\Log\Logger();
+        $logger->addWriter($writer);
+        $logger->info("_createFileLockForFeedPath ");
+
+        $lock_path = $feedpath.'.lck';
+        $logger->info("lock_path ");
+        $logger->info($lock_path);
+        $fp = fopen($lock_path, 'wb');
+        fwrite($fp,$lock_path);
+        fclose($fp);
+    }
+
+    public function _removeFileLockForFeedPath($feedpath) {
+        $lock_path = $feedpath.'.lck';
+        //unlink($lock_path);
+    }
+    public function getFeedObject() {
+        return $this->productFeed;
+    }
+}

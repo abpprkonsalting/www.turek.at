@@ -1,0 +1,72 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody>
+        	<tr>
+            	<td style="width:50%;">
+            		<h3 class="icon-head head-sales-order"><?php echo __('Approved Instagram Images') ?></h3>
+                </td>
+        	</tr>
+    	</tbody>
+    </table>
+</div>
+<div id="imagediv">
+	<img src="<?php echo $block->getViewFileUrl('Magecomp_Instagramshoppable::images/spinner.gif'); ?>" alt="Wait Image" />
+</div>
+<div>
+	<?php foreach ($block->getImages() as $image) : 
+	if( $image->getMediaType() == "image"){ ?>
+		<div class="item" id="<?php echo $image->getImageId(); ?>" style="width:150px;margin:10px; text-align:center; float:left;">
+        	<p><?php echo $image->getTag(); ?></p>
+			<img src="<?php echo $image->getThumbnailUrl(); ?>" />
+			<br>
+			<a style="float:right;" onclick="return deleteImage('<?php echo $image->getImageId(); ?>');" href="javascript:void(0);"><?php echo __('Delete Image') ?></a>	
+		</div>
+         <?php } else { ?>
+         <div class="item" id="<?php echo $image->getImageId(); ?>" style="width:150px;margin:10px; text-align:center; float:left;">
+         	<p><?php echo $image->getTag(); ?></p>
+			<video width="150" height="150" controls>
+              <source src="<?php echo $image->getThumbnailUrl(); ?>" type="video/mp4">
+              <?php echo __('Your browser does not support the video tag.') ?>
+            </video>
+			<br>
+			<a style="float:right;" onclick="return deleteImage('<?php echo $image->getImageId(); ?>');" href="javascript:void(0);"><?php echo __('Delete Image') ?></a>	
+		</div><?php } ?>
+	<?php endforeach; ?>
+	<div style="clear:both;"></div>
+</div>
+<script type="text/javascript">
+function deleteImage(Imgid) 
+  {
+	  var formurl = '<?php echo $this->getUrl('*/*/deleteapproved'); ?>'; 
+	  jQuery.ajax({
+		  type: "GET",
+		  url: formurl,
+		  data: {isAjax: 1, id: Imgid},
+		  beforeSend: function()
+		  {
+			  jQuery('#imagediv').show();
+		  }, 
+		  success: function(transport) 
+		  {
+			  var response = transport;
+			  jQuery('#imagediv').hide();
+			  if (response == 'success') 
+			  {
+				  jQuery('#'+Imgid).remove();
+				  return true;
+			  } 
+			  else 
+			  {
+				   alert('<?php echo __('Unknown Error. Please try again later.'); ?>');
+				  return false;
+			  }
+		  },
+		  error: function() 
+		  {
+			  jQuery('#imagediv').hide();
+			  alert('<?php echo __('Server Error. Please try again.') ?>');
+			  return false;
+		  }
+	 });
+  }
+</script>

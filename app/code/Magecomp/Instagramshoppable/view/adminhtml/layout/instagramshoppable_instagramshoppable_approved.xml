@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+    	<css src="Magecomp_Instagramshoppable::css/instagram.css"/>
+  	</head>
+	<body>
+	  <referenceContainer name="page.main.actions">
+            <block class="Magento\Backend\Block\Store\Switcher" name="instagram.store.switcher" template="Magento_Backend::store/switcher.phtml"/>
+        </referenceContainer> 	
+	  <referenceContainer name="content">
+		<block class="Magecomp\Instagramshoppable\Block\Adminhtml\Approved" template="Magecomp_Instagramshoppable::instagramshoppable/approved.phtml" name="approved"/>
+	  </referenceContainer>
+	</body>
+</page>
