@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="etron" translate="label" sortOrder="500">
+            <label>ETRON</label>
+        </tab>
+        <section id="etron_dsgvo" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>DSGVO</label>
+            <tab>etron</tab>
+            <resource>Etron_DSGVO::config_dsgvo</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Einstellungen</label>
+                <field id="info_block" translate="label" type="select" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>CMS Block für Cookie-Meldung</label>
+                    <source_model>Magento\Cms\Model\Config\Source\Block</source_model>
+                    <comment>Dieser Text wird statt dem Preis dem Benutzer angezeigt</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

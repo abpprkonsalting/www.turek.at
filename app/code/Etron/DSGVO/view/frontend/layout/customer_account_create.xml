@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_form_template_handle"/>
+    <body>
+        <referenceBlock name="customer_form_register">
+            <action method="setTemplate">
+                <argument name="Template" xsi:type="string">Etron_DSGVO::html/register.phtml</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>
