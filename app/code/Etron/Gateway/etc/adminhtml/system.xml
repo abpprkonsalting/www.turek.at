@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="etron" translate="label" sortOrder="500">
+            <label>ETRON</label>
+        </tab>
+        <section id="gateway" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>ETRON Gateway</label>
+            <tab>etron</tab>
+            <resource>Etron_Gateway::settings</resource>
+            <group id="settings" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>ETRON Gateway configuration</label>
+                <field id="is_enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="endpoint_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Endpoint URL</label>
+                    <validate>validate-no-empty</validate>
+                </field>
+                <field id="connection_name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Connection Name</label>
+                    <validate>validate-no-empty</validate>
+                </field>
+                <field id="manual_resend" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Payment methods that need manual resend</label>
+                    <source_model>Etron\Gateway\Model\Config\Source\AllPaymentMethods</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

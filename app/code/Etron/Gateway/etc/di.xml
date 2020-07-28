@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="regenerate_cmd" xsi:type="object">Etron\Gateway\Console\RegenerateUrls</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Magento\Sales\Block\Adminhtml\Order\View" type="Etron\Gateway\Block\Adminhtml\Order\View" />
+
+    <type name="Etron\Gateway\Helper\Data">
+        <plugin name="send_status_plugin" type="Etron\Gateway\Plugin\SendStatusPlugin" />
+    </type>
+
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+        <plugin name="add_new_order_plugin" type="Etron\Gateway\Plugin\InsertNewOrderFactory" />
+    </type>
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid"
+                 type="Magento\Sales\Model\ResourceModel\Grid">
+        <arguments>
+            <argument name="columns" xsi:type="array">
+                <item name="gw_send_status" xsi:type="string">sales_order.gw_send_status</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Etron\Gateway\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Etron\Gateway\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">etronGatewayCustomLogger</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Etron\Gateway\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <preference for="Etron\Gateway\Api\QueueRepositoryInterface"
+                type="Etron\Gateway\Model\ResourceModel\QueueRepository" />
+</config>
