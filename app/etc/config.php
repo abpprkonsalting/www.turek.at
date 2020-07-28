@@ -220,6 +220,7 @@ return [
         'MagePsycho_Easypathhints' => 1,
         'Magecomp_Instagramshoppable' => 1,
         'Temando_Shipping' => 1,
-        'Vertex_Tax' => 1
+        'Vertex_Tax' => 1,
+        'WeltPixel_Backend' => 1
     ]
 ];

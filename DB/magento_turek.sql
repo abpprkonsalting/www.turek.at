@@ -108,7 +108,7 @@ CREATE TABLE `admin_user` (
 
 LOCK TABLES `admin_user` WRITE;
 /*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
-INSERT INTO `admin_user` VALUES (1,'admin','admin','abpprkonsalting@gmail.com','admin','5ae608fba998d96231930baba0c2f08ed8eead4c814ab4945e2fc2b60bd1a5bd:ROiX1F4dHyQSESCF:2','2020-07-28 03:30:23','2020-07-28 19:24:53','2020-07-28 19:24:53',3,0,1,NULL,NULL,NULL,'en_US',0,NULL,NULL,NULL);
+INSERT INTO `admin_user` VALUES (1,'admin','admin','abpprkonsalting@gmail.com','admin','5ae608fba998d96231930baba0c2f08ed8eead4c814ab4945e2fc2b60bd1a5bd:ROiX1F4dHyQSESCF:2','2020-07-28 03:30:23','2020-07-28 19:55:52','2020-07-28 19:55:52',6,0,1,NULL,NULL,NULL,'en_US',0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `admin_user_session` (
   KEY `ADMIN_USER_SESSION_SESSION_ID` (`session_id`),
   KEY `ADMIN_USER_SESSION_USER_ID` (`user_id`),
   CONSTRAINT `ADMIN_USER_SESSION_USER_ID_ADMIN_USER_USER_ID` FOREIGN KEY (`user_id`) REFERENCES `admin_user` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Admin User sessions table';
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Admin User sessions table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `admin_user_session` (
 
 LOCK TABLES `admin_user_session` WRITE;
 /*!40000 ALTER TABLE `admin_user_session` DISABLE KEYS */;
-INSERT INTO `admin_user_session` VALUES (1,'9oc8qt4l23qqr5d74f371n6ef1',1,1,'2020-07-28 03:32:16','2020-07-28 03:45:11','192.168.88.42'),(4,'e237jg6l4op7q1pb395n6k8pos',1,1,'2020-07-28 18:49:38','2020-07-28 19:01:27','192.168.88.252'),(7,'ihr0523gl30bnshdda597ev3q8',1,1,'2020-07-28 19:24:54','2020-07-28 19:45:36','192.168.88.252');
+INSERT INTO `admin_user_session` VALUES (1,'9oc8qt4l23qqr5d74f371n6ef1',1,1,'2020-07-28 03:32:16','2020-07-28 03:45:11','192.168.88.42'),(4,'e237jg6l4op7q1pb395n6k8pos',1,1,'2020-07-28 18:49:38','2020-07-28 19:01:27','192.168.88.252'),(7,'ihr0523gl30bnshdda597ev3q8',1,2,'2020-07-28 19:24:54','2020-07-28 19:55:29','192.168.88.252'),(10,'q74uovh9h806ummk8676skv7gc',1,2,'2020-07-28 19:55:29','2020-07-28 19:55:41','192.168.88.252'),(13,'ss2vd17q40viod4gpo1j4q2n8v',1,2,'2020-07-28 19:55:41','2020-07-28 19:56:08','192.168.88.252'),(16,'97h5tkipaubfkhm003eq1m6db7',1,1,'2020-07-28 19:56:08','2020-07-28 19:56:49','192.168.88.252');
 /*!40000 ALTER TABLE `admin_user_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3784,7 +3784,7 @@ CREATE TABLE `core_config_data` (
   `value` text DEFAULT NULL COMMENT 'Config Value',
   PRIMARY KEY (`config_id`),
   UNIQUE KEY `CORE_CONFIG_DATA_SCOPE_SCOPE_ID_PATH` (`scope`,`scope_id`,`path`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8 COMMENT='Config Data';
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COMMENT='Config Data';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3793,7 +3793,7 @@ CREATE TABLE `core_config_data` (
 
 LOCK TABLES `core_config_data` WRITE;
 /*!40000 ALTER TABLE `core_config_data` DISABLE KEYS */;
-INSERT INTO `core_config_data` VALUES (1,'default',0,'web/seo/use_rewrites','1'),(4,'default',0,'web/unsecure/base_url','http://www.turek-local.at/'),(7,'default',0,'web/secure/base_url','https://www.turek-local.at/'),(10,'default',0,'general/locale/code','en_US'),(13,'default',0,'web/secure/use_in_frontend',NULL),(16,'default',0,'web/secure/use_in_adminhtml',NULL),(19,'default',0,'general/locale/timezone','Europe/Vienna'),(22,'default',0,'currency/options/base','EUR'),(25,'default',0,'currency/options/default','EUR'),(28,'default',0,'currency/options/allow','EUR'),(31,'default',0,'general/region/display_all','1'),(34,'default',0,'general/region/state_required','AU,BR,CA,CH,EE,ES,HR,IN,LT,LV,MX,RO,US'),(37,'default',0,'catalog/category/root_id','2'),(40,'default',0,'payment/authorizenet_acceptjs/cctypes','AE,VI,MC,DI,JCB,DN'),(43,'default',0,'payment/authorizenet_acceptjs/order_status','processing'),(46,'default',0,'payment/authorizenet_acceptjs/payment_action','authorize'),(49,'default',0,'payment/authorizenet_acceptjs/currency','USD'),(52,'websites',1,'payment/authorizenet_acceptjs/cctypes','AE,VI,MC,DI,JCB,DN'),(55,'websites',1,'payment/authorizenet_acceptjs/order_status','processing'),(58,'websites',1,'payment/authorizenet_acceptjs/payment_action','authorize'),(61,'websites',1,'payment/authorizenet_acceptjs/currency','USD'),(64,'default',0,'analytics/subscription/enabled','1'),(67,'default',0,'crontab/default/jobs/analytics_subscribe/schedule/cron_expr','0 * * * *'),(70,'website',0,'connector_configuration/transactional_data/order_statuses','canceled,closed,complete,fraud,holded,payment_review,paypal_canceled_reversal,paypal_reversed,pending,pending_payment,pending_paypal,processing'),(73,'website',0,'connector_configuration/catalog_sync/catalog_type','simple,virtual,configurable,downloadable,bundle,grouped'),(76,'website',0,'connector_configuration/catalog_sync/catalog_visibility','1,2,3,4'),(79,'default',0,'connector_dynamic_content/external_dynamic_content_urls/passcode','6fCNoXKtyz4fm0j6BAElR1R1gdyySTlU'),(82,'default',0,'connector_automation/review_settings/allow_non_subscribers','1'),(85,'default',0,'connector_configuration/abandoned_carts/allow_non_subscribers','1'),(88,'default',0,'sync_settings/addressbook/allow_non_subscribers','1'),(91,'default',0,'msp_securitysuite_twofactorauth/duo/application_key','CuwdnyKrjCwZOEbsnMGIE1t91lG7C0PNI2JKEsptX7gFBLqGVWnSOZcfbAYY4D0S');
+INSERT INTO `core_config_data` VALUES (1,'default',0,'web/seo/use_rewrites','1'),(4,'default',0,'web/unsecure/base_url','http://www.turek-local.at/'),(7,'default',0,'web/secure/base_url','https://www.turek-local.at/'),(10,'default',0,'general/locale/code','en_US'),(13,'default',0,'web/secure/use_in_frontend',NULL),(16,'default',0,'web/secure/use_in_adminhtml',NULL),(19,'default',0,'general/locale/timezone','Europe/Vienna'),(22,'default',0,'currency/options/base','EUR'),(25,'default',0,'currency/options/default','EUR'),(28,'default',0,'currency/options/allow','EUR'),(31,'default',0,'general/region/display_all','1'),(34,'default',0,'general/region/state_required','AU,BR,CA,CH,EE,ES,HR,IN,LT,LV,MX,RO,US'),(37,'default',0,'catalog/category/root_id','2'),(40,'default',0,'payment/authorizenet_acceptjs/cctypes','AE,VI,MC,DI,JCB,DN'),(43,'default',0,'payment/authorizenet_acceptjs/order_status','processing'),(46,'default',0,'payment/authorizenet_acceptjs/payment_action','authorize'),(49,'default',0,'payment/authorizenet_acceptjs/currency','USD'),(52,'websites',1,'payment/authorizenet_acceptjs/cctypes','AE,VI,MC,DI,JCB,DN'),(55,'websites',1,'payment/authorizenet_acceptjs/order_status','processing'),(58,'websites',1,'payment/authorizenet_acceptjs/payment_action','authorize'),(61,'websites',1,'payment/authorizenet_acceptjs/currency','USD'),(64,'default',0,'analytics/subscription/enabled','1'),(67,'default',0,'crontab/default/jobs/analytics_subscribe/schedule/cron_expr','0 * * * *'),(70,'website',0,'connector_configuration/transactional_data/order_statuses','canceled,closed,complete,fraud,holded,payment_review,paypal_canceled_reversal,paypal_reversed,pending,pending_payment,pending_paypal,processing'),(73,'website',0,'connector_configuration/catalog_sync/catalog_type','simple,virtual,configurable,downloadable,bundle,grouped'),(76,'website',0,'connector_configuration/catalog_sync/catalog_visibility','1,2,3,4'),(79,'default',0,'connector_dynamic_content/external_dynamic_content_urls/passcode','6fCNoXKtyz4fm0j6BAElR1R1gdyySTlU'),(82,'default',0,'connector_automation/review_settings/allow_non_subscribers','1'),(85,'default',0,'connector_configuration/abandoned_carts/allow_non_subscribers','1'),(88,'default',0,'sync_settings/addressbook/allow_non_subscribers','1'),(91,'default',0,'msp_securitysuite_twofactorauth/duo/application_key','CuwdnyKrjCwZOEbsnMGIE1t91lG7C0PNI2JKEsptX7gFBLqGVWnSOZcfbAYY4D0S'),(94,'default',0,'weltpixel/crontab/license','53 1 * * 1'),(97,'default',0,'wp/flag/info','0');
 /*!40000 ALTER TABLE `core_config_data` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6217,7 +6217,7 @@ CREATE TABLE `indexer_state` (
 
 LOCK TABLES `indexer_state` WRITE;
 /*!40000 ALTER TABLE `indexer_state` DISABLE KEYS */;
-INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 19:43:10','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 19:43:11','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
+INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 19:51:58','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 19:51:58','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
 /*!40000 ALTER TABLE `indexer_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11386,7 +11386,7 @@ CREATE TABLE `setup_module` (
 
 LOCK TABLES `setup_module` WRITE;
 /*!40000 ALTER TABLE `setup_module` DISABLE KEYS */;
-INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('CleverReach_CleverReachIntegration','2.2.1','2.2.1'),('Customweb_Base','1.0.1','1.0.1'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Etron_DSGVO','2.0.0','2.0.0'),('Etron_Gateway','1.1.0','1.1.0'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Lillik_PriceDecimal','1.0.4','1.0.4'),('Magecomp_Instagramshoppable','1.0.0','1.0.0'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MagePsycho_Easypathhints','1.1.0','1.1.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0');
+INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('CleverReach_CleverReachIntegration','2.2.1','2.2.1'),('Customweb_Base','1.0.1','1.0.1'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Etron_DSGVO','2.0.0','2.0.0'),('Etron_Gateway','1.1.0','1.1.0'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Lillik_PriceDecimal','1.0.4','1.0.4'),('Magecomp_Instagramshoppable','1.0.0','1.0.0'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MagePsycho_Easypathhints','1.1.0','1.1.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0'),('WeltPixel_Backend','1.1.1','1.1.1');
 /*!40000 ALTER TABLE `setup_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12618,6 +12618,30 @@ LOCK TABLES `weee_tax` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `weltpixel_license`
+--
+
+DROP TABLE IF EXISTS `weltpixel_license`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `weltpixel_license` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `module_name` varchar(255) DEFAULT NULL COMMENT 'Module Name',
+  `license_key` text DEFAULT NULL COMMENT 'License Key',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='WeltPixel License';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `weltpixel_license`
+--
+
+LOCK TABLES `weltpixel_license` WRITE;
+/*!40000 ALTER TABLE `weltpixel_license` DISABLE KEYS */;
+/*!40000 ALTER TABLE `weltpixel_license` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `widget`
 --
 
@@ -12850,4 +12874,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-28 15:46:18
+-- Dump completed on 2020-07-28 15:57:29
