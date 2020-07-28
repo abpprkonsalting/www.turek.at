@@ -1,0 +1,157 @@
+#nav {
+    li.item-wesupply {
+        > a {
+            &:before {
+                content: '';
+                background-image: url("../WeSupply_Toolbox/images/icon-wesupply.svg");
+                background-repeat: no-repeat;
+                background-size: 70px;
+                background-position: center;
+                height: 50px;
+            }
+
+            > span {
+                font-size: 0;
+            }
+        }
+    }
+}
+
+#wesupply_api_step_1_wesupply_subdomain,
+#wesupply_api_step_1_wesupply_subdomain_2,
+#wesupply_api_step_2_wesupply_subdomain,
+#wesupply_api_step_2_access_key {
+    width: 70%;
+}
+
+#row_wesupply_api_step_2_client_name,
+#row_wesupply_api_step_1_client_name,
+#row_wesupply_api_step_2_api_endpoint_info,
+#row_wesupply_api_step_5_estimation_default_carrier {
+    .note {
+        display: inline;
+
+    }
+}
+
+#wesupply_api_step_2_api_endpoint {
+    font-weight: bold;
+}
+
+.section-config {
+    .copy-text {
+        font-size: 12px;
+        padding: 0 10px;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &.wesupply-toolbox-header {
+        .admin__collapsible-block {
+            display: block !important;
+
+            #row_wesupply_api_module_information_version_compare {
+                p.old-version {
+                    background-color: #eb5202;
+                    padding: 10px;
+                    color: #ffffff;
+                    a {
+                        color: #000000;
+                        &:hover {
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+
+            #wesupply_api_module_information-head {
+                font-size: 1.7rem;
+                font-weight: 600;
+                letter-spacing: .025em;
+                padding-bottom: 0;
+                color: #303030;
+                text-decoration: none;
+            }
+
+            a {
+                font-weight: normal;
+                padding-bottom: 0;
+
+                &:before {
+                    content: '' !important;
+                }
+            }
+
+            table {
+                td.label {
+                    display: none;
+                }
+
+                td.value {
+                    width: 100%;
+                }
+            }
+
+            .bold {
+                font-weight: bold;
+            }
+
+            .red {
+                color: #ff0000;
+            }
+        }
+    }
+
+    #row_wesupply_api_step_1_client_name,
+    #row_wesupply_api_step_2_api_endpoint_info,
+    #row_wesupply_api_module_information_version_compare {
+        td.use-default {
+            display: none;
+        }
+    }
+    #row_wesupply_api_step_5_estimation_range_specific {
+        .admin__control-table {
+            th, td {
+                padding: 1.3rem 1rem 1.3rem 1rem;
+                vertical-align: top;
+                input {
+                    padding: 5px;
+                }
+                .fake-input,
+                .fake-checkbox {
+                     border: 1px solid #adadad;
+                     width: 100%;
+                     display: block;
+                }
+                .fake-input {
+                    height: 31px;
+                    max-width: 41px !important;
+                }
+                .fake-checkbox {
+                    border-radius: 2px;
+                    height: 14px;
+                    left: -4px;
+                    margin: 0 auto;
+                    max-width: 14px;
+                    position: relative;
+                }
+                &.shipping-method,
+                &.hide-estimation {
+                    vertical-align: middle;
+                }
+                &.specific-range {
+                    input {
+                        text-align: center;
+                        max-width: 42px;
+                    }
+                }
+                &.hide-estimation {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

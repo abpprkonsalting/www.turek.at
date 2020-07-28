@@ -1,0 +1,23 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');
+$subcats = $category->getChildrenCategories();                                                   	
+?>
+<div class="product details product-item-details manufacturer">
+    <?php
+	foreach ($subcats as $subcat) {
+    	if ($subcat->getIsActive()) {
+            $sub_category = $objectManager->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+            $subcat_url = $subcat->getUrl(); 
+            $categoryCount = $subcat->getProductCollection()->count();
+            ?>
+       	   <span class="product-item-name">
+             <a href="<?php echo $subcat_url?>" class="product-item-link <?= ($categoryCount==0)?'inactive':'' ?>"><?php echo $subcat->getName(); ?></a>
+             </span>
+            <?php                        	
+    	}
+	} ?>
+</div>
+
+
+      

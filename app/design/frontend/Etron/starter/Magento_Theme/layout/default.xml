@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+	
+        <!-- Downloadable product link -->
+        <referenceBlock name="customer-account-navigation-downloadable-products-link" remove="true"/>
+
+        <!-- My credit card link -->
+        <referenceBlock name="customer-account-navigation-my-credit-cards-link" remove="true"/>
+
+        <!-- Billing agreement link -->
+        <referenceBlock name="customer-account-navigation-billing-agreements-link" remove="true"/>
+        <!-- Disable reviews-->
+        <referenceBlock name="reviews.tab" remove="true" />
+        <referenceBlock name="product.review.form" remove="true" />
+        <referenceBlock name="product.info.review" remove="true" />
+
+
+        <referenceBlock name="reviews.tab" remove="true" />
+         <referenceBlock name="customer-account-navigation-product-reviews-link" remove="true" />
+         <referenceBlock name="customer_account_dashboard_info1" remove="true" />
+         <referenceBlock name="review_customer_list" remove="true" />
+         <referenceBlock name="customers_review" remove="true" />
+         <referenceBlock name="product.review.form" remove="true" />
+         <referenceBlock name="review_view" remove="true" />
+         <referenceBlock name="product.info.product_additional_data" remove="true" />
+    </body>
+</page>

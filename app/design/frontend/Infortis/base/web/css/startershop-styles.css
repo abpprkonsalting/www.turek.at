@@ -1,0 +1,98 @@
+.nav-container{
+  background-color: #fff;
+}
+
+/* Coockie Meldung Styles */
+
+#notice-cookie-block .content{
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+#notice-cookie-block .content p{
+  float: left;
+  width: calc(100% - 120px);
+}
+
+#notice-cookie-block .content .actions{
+  float: right;
+  width: 100px;
+}
+
+/* End Coockie Meldung Styles */
+
+/* Fotorama Caption Image deleting */
+
+.fotorama-item .fotorama__caption{
+  display: none;
+}
+
+/* Coockie colors */
+
+.message.global.noscript a:hover, .message.global.cookie a:hover{
+  color: #ffb74f;
+}
+
+.message.global.noscript a, .message.global.cookie a{
+  color: #898989;
+}
+
+/* footer Magento Links disable */
+
+.inner-container.links-wrapper-separators{
+  display: none;
+}
+
+
+/* OWL Slider Colors changes */
+
+.owl-theme .owl-controls .owl-nav [class*=owl-]:hover{
+  background: #eee !important;
+}
+
+/* Product Display  Category in the middle */
+
+.product-item-actions .actions-primary, .product-item-actions .actions-secondary{
+  float: none;
+}
+
+.product-item-actions{
+  position: unset;
+  display: inline-block;
+}
+
+.items-grid.equal-height .item .actions{
+  position: unset;
+}
+
+.product-item-details{
+  text-align: center;
+}
+
+.price-container .price-label {
+  display: none !important;
+}
+
+.product-item-details .product .product-item-link{
+  min-height: 44px;
+  display: block;
+}
+
+/* old price margins */
+
+.product-item .old-price, .product-items .item .old-price{
+  margin: 0;
+  margin-left: 4px;
+}
+
+/* Tier Price disabling auf category seite */
+
+.product-item .minimal-price-link, .product-items .item .minimal-price-link{
+  display: none;
+}
+
+
+/* Bestellbar status styles */
+.product-info-main .stock.available span.bestellbar, .product-info-main .stock.unavailable span.bestellbar{
+       text-transform: none;
+}

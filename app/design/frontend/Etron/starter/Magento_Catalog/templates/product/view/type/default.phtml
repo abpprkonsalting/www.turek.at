@@ -1,0 +1,52 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\AbstractView */?>
+<?php $_product = $block->getProduct() ?>
+
+<?php
+  $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+  $_categoryFactory = $_objectManager->get('Magento\Catalog\Model\CategoryFactory');
+  $categoryTitle = $_product->getAttributeText('manufacturer'); // Category Title from ManufacturerName
+  if ($categoryTitle){
+    $collection = $_categoryFactory->create()->getCollection()->addFieldToFilter('name', ['in' => $categoryTitle]);
+    if ($collection->getSize()) {
+        $categoryId = $collection->getFirstItem()->getId();
+    }
+    if(isset($categoryId)){
+      $object_manager = $_objectManager->create('Magento\Catalog\Model\Category')->load($categoryId); 
+      $categoryLabelLink = $object_manager->getData('url_path');
+      echo '<div class="label-link"><span>Label: <span><b><a href="/' . $categoryLabelLink . '">' . $categoryTitle . '</a></b></div>';
+    }
+  } 
+?>
+
+
+<?php if ($block->displayProductStockStatus()): ?>
+    <?php if ($_product->isAvailable()): ?>
+        <div class="stock available" title="<?= /* @escapeNotVerified */ __('Availability') ?>">
+          <?php if ($_product->getData('bestellbar')): ?>
+              <span class="bestellbar"><?php echo $_product->getData('bestellbar') ?></span>
+          <?php else: ?>
+            <span><?= /* @escapeNotVerified */ __('In stock') ?></span>
+          <?php endif; ?>
+        </div>
+    <?php else: ?>
+        <div class="stock unavailable" title="<?= /* @escapeNotVerified */ __('Availability') ?>">
+          <?php if ($_product->getData('bestellbar')): ?>
+              <span class="bestellbar"><?php echo $_product->getData('bestellbar') ?></span>
+          <?php else: ?>
+            <span><?= /* @escapeNotVerified */ __('Out of stock') ?></span>
+          <?php endif; ?>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+
+

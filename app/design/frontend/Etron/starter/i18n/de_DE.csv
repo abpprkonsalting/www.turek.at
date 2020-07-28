@@ -1,0 +1,23 @@
+place_order,Zahlungspflichtig bestellen,
+Are you sure you want to remove this item from your Compare Products list?,Möchten Sie diesen Artikel wirklich aus Ihrer Vergleichsliste entfernen?
+Are you sure you want to remove all items from your Compare Products list?,Möchten Sie alle Artikel wirklich aus Ihrer Vergleichsliste entfernen?
+This is a demo store. No orders will be fulfilled.,Dies ist eine Demo-Installation. Es werden keine Aufträge erfüllt.
+/en/datenschutzbestimmung/,/default/datenschutzbestimmung/,,
+<a href=""/en/datenschutzbestimmung/"">Data privacy</a>.,<a href=""/default/datenschutzbestimmung/"">Datenschutzerklärung</a>.,,
+"I accept <a href=""%1"" target=""_blank"">Data privacy</a>","Ich stimme der <a href=""%1"" target=""_blank"">Datenschutzerklärung</a> zu",,
+Furthermore I confirm that I am at least 16 years old.,Ich bestätige die Altersgrenze von 16 Jahren zu erfüllen.
+Confirmation Age,Altersbestätigung
+Cart,Mein Warenkorb 
+"You must login or register to add items to your wishlist.","Sie müssen sich anmelden oder ein Konto anlegen, um Artikel zur Wunschliste hinzufügen zu können"
+"The account sign-in was incorrect or your account is disabled temporarily. Please wait and try again later.","Sie haben inkorrekte Daten eingegeben oder ihr Account ist vorübergehend deaktiviert. Bitte versuchen Sie es später nochmal."
+"Delete image in all store views","Lösche Bild in allen Storeviews"
+"Related Products","Zubehör"
+"We found other products you might like!","Das könnte Ihnen auch gefallen!"
+"Click to see more products from %1","Klicken Sie hier für weitere Produkte von %1"
+"Add to Wish List","Zur Wunschliste"
+"Add to Compare","Zur Vergleichsliste"
+"Wish List","Zur Wunschliste"
+"Compare","Zur Vergleichsliste"
+Now Shopping by,Filter,,
+Shop By,Filter,,
+Sort By,Sortieren,,

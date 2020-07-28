@@ -1,0 +1,259 @@
+.items-grid .swatch-attribute-options, .products-grid .swatch-attribute-options, .products-list .swatch-attribute-options {
+   display: inline-block !important;
+}
+
+@media only screen and (min-width: 992px){
+   .products-list-ext .product-item-inner {
+      width: 22% !important;
+   }
+}
+
+.products-list-ext.hover-effect .item:hover{
+   margin-left: unset;
+   margin-right: unset;
+   padding-left: unset;
+   padding-right: unset;
+}
+
+.products-list-ext .product-item-actions .actions-secondary, .products-list-ext .product-item-actions .actions-priamry{
+   float: left;
+}
+
+/* Bugfix Form KundeLogin */
+@media (min-width: 768px), print{
+   .login-container .fieldset>.field>.control {
+      width: 74.2% !important;
+   }
+}
+
+/* Menü Anpassungen Custom */
+@media only screen and (min-width: 992px){
+   #mainmenu ul.level0 ul.level1, #mainmenu ul.level0 ul.level1 ul.level2  {
+      border: 2px solid #fff;
+   }
+}
+
+/* HomePage Product Slider Anpassungen */
+@media (min-width: 1024px), print{
+   .cms-home.page-layout-1column .block.widget .products-grid .product-item {
+      width: calc((100% - 2%)/2);   
+   }
+}
+
+/* Footer anpassungen */
+
+.footer-container .footer-primary-top-spacing{
+   border-color:#000;
+}
+
+.footer-primary .grid12-12 {
+   text-align: right;
+}
+
+.footer-primary .grid12-12 .links {
+   display: inline-block;
+}
+
+.footer-primary .grid12-12 .links li a{
+   padding-right: 10px;
+   line-height: 14px;
+   border-right: solid 1px #000;
+}
+
+
+.footer-primary .grid12-12 .links li:last-child a{
+   border-right: unset;
+}
+
+/* Black Button Styles */
+
+.button-black {
+   font-size: 16px;
+   padding: 0 2px;
+   text-align: center;
+   display: inline-block;
+   line-height: 28px;
+}
+
+.button-black:hover {
+   background-color: #000;
+}
+.button-black:hover a{
+   color: #fff;
+}
+
+.social-links-header{
+   padding-bottom: 0px;
+}
+.social-links-header .button-black {
+   font-size: 14px;
+}
+
+#mainmenu{
+   margin-top: 20px;
+}
+.product-marke{
+   font-weight: bold;
+   display: block;
+}
+
+.products.list .product-item-name{
+   font-size: 14px !important;
+}
+
+/* Manufacturer Page Anpassungen */
+
+.product-item-details.manufacturer .product-item-name{
+   text-align: left;
+   font-size: 16px; 
+}
+
+.product-item-details.manufacturer .product-item-name .product-item-link.inactive{ 
+   color: #bbb;
+} 
+
+/* Social Buttons */
+
+.social-links-header .social.fb a{
+   width: 40px;
+   height: 40px;
+   background-image: url("/pub/media/wysiwyg/FB_Icon.png");
+   display: block;
+   background-size: cover;
+}
+
+.social-links-header .social.insta a{
+   height: 40px;
+   width: 40px;
+   background-image: url("/pub/media/wysiwyg/Insta_Icon.png");
+   display: block;
+   background-size: cover;
+}
+
+.social-links-header .button-black:hover{
+   background-color: transparent;
+}
+
+@media only screen and (min-width: 480px){
+   #minicart .icon.ic-cart{
+      display: none;
+   }
+}
+
+/* Fonts anpassungen */
+
+.cart-summary > .title{
+   font-size: 20px !important;
+   padding: 20px 0 10px 0;
+}
+
+.opc-block-summary > .title{
+   font-size: 20px !important;
+}
+
+.column.main .cart-summary .block > .title strong, .column.main .block .title strong{
+   font-size: 16px !important;
+}
+
+.block.widget.block-products-list .block-title strong{ 
+   font-size: 32px !important;
+   font-weight: bold !important;
+}
+
+#header-search > .button-black a{
+   font-size: 14px !important;
+}
+
+/* Sorter Fix */
+
+.sorter{
+   padding: 4px 0 0 !important;
+}
+
+.toolbar-sorter.sorter .sorter-label{
+   display: none !important;
+}
+
+/* Sizeguide Fix */
+
+@media only screen and (max-width: 630px){
+   .cms-sizeguide table>thead>tr>th, .cms-sizeguide table>tbody>tr>th, .cms-sizeguide table>tfoot>tr>th, .cms-sizeguide table>thead>tr>td, .cms-sizeguide table>tbody>tr>td, .cms-sizeguide table>tfoot>tr>td{
+      padding: 2px 2px !important;
+   }
+}
+
+@media only screen and (max-width: 400px){
+   .cms-sizeguide table>thead>tr>th, .cms-sizeguide table>tbody>tr>th, .cms-sizeguide table>tfoot>tr>th, .cms-sizeguide table>thead>tr>td, .cms-sizeguide table>tbody>tr>td, .cms-sizeguide table>tfoot>tr>td{
+      padding: 1px 1px !important;
+   }
+}
+
+/* Asterisk für Price */
+
+.price-box.price-final_price::after{
+   content: "*";
+}
+
+.product-info-price .price-box.price-final_price::after{
+   content: "";
+}
+
+
+/* Widget Title paddings */
+
+@media (max-width: 768px){
+   .widget.block-products-list.grid .block-title{
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
+
+/* MwSt CR */
+
+.catalog-category-view .tax-details, .widget.block-products-list .tax-details, .owl-item  .tax-details{
+   display: none;
+}
+
+.mobile-social-wrapper {
+   display: none;
+}
+
+.desktop-social-wrapper {
+   display: block;
+}
+
+@media (max-width: 768px) {
+   .desktop-social-wrapper {
+      display: none;
+   }
+   .mobile-social-wrapper {
+      display: inline-block;
+      float: right;
+      position: absolute;
+      right: 15px;
+      top: 90px;
+   }
+}
+
+/* align customer menu by 1 pixel with minicart dropdown */
+#header-account {
+   border: 1px solid transparent;
+}
+
+.header-primary-container .hp-blocks-holder .hp-block.right-column .item:first-child {
+   margin: 10px 0 25px 0;
+}
+
+/* Turek Styles */
+
+.header-container .logo-wrapper .logo img{
+   max-width: 100px;
+}
+
+.checkout-agreement span{
+   color: #000;
+}
+
+.checkout-agreement span:hover{
+   color: #5bd2ec;
+}
