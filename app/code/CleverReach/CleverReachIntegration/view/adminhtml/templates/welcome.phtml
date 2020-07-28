@@ -1,0 +1,57 @@
+<?php
+$welcomeConfig = $block->getWelcomeConfig();
+/**
+ * Path to CleverReach logo
+ */
+$logoUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/logo_cleverreach.svg');
+$iconUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/icon_' . __('hello'). '.png');
+?>
+
+<img class="cr-logo" src="<?php echo $block->escapeQuote($logoUrl); ?>"/>
+
+<div class="cr-container">
+
+    <input type="hidden" id="cr-auth-url" value="<?php echo $welcomeConfig['authUrl']; ?>">
+    <input type="hidden" id="cr-check-status-url" value="<?php echo $welcomeConfig['checkStatusUrl']; ?>">
+
+    <div class="cr-loader-big">
+        <span class="cr-loader"></span>
+    </div>
+
+    <div class="cr-connecting">
+        <span>
+            <?php
+                echo $block->escapeQuote(__('Connecting...'));
+            ?>
+        </span>
+    </div>
+    
+    <div class="cr-content-window-wrapper">
+        <div class="cr-content-window">
+            <img class="cr-welcome-icon" src="<?php echo $iconUrl; ?>"/>
+            <h3>
+                <?php
+                    echo $block->escapeQuote(__('Welcome to clever Email Marketing!'));
+                ?>
+            </h3>
+            <div class="cr-dashboard-text-wrapper cr-main-text">
+                <?php
+                    echo $block->escapeQuote(__('Simply transmit Magento data and get started with CleverReach® for free!'));
+                ?>
+            </div>
+            <div class="cr-action-buttons-wrapper">
+                <button class="cr-primary" id="cr-new-account">
+                    <?php
+                        echo $block->escapeQuote(__('Create and connect your new CleverReach® account now!'));
+                    ?>
+                </button>
+                <button class="cr-secondary" id="cr-log-account">
+                    <?php
+                        echo $block->escapeQuote(__('Log in and connect with an existing CleverReach® account'));
+                    ?>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

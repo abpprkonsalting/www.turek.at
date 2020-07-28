@@ -1,0 +1,82 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--event for product view by customer-->
+    <event name="controller_action_predispatch">
+        <observer name="service_register" instance="CleverReach\CleverReachIntegration\Observer\ServiceRegisterObserver" />
+    </event>
+
+    <!-- event for recipient subscription/unsubscription -->
+    <event name="newsletter_subscriber_save_after">
+        <observer name="recipient_subscribed" instance="CleverReach\CleverReachIntegration\Observer\RecipientSubscribedObserver" />
+    </event>
+
+    <!-- event for subscriber delete -->
+    <event name="newsletter_subscriber_delete_after">
+        <observer name="recipient_deleted" instance="CleverReach\CleverReachIntegration\Observer\SubscriberDeletedObserver" />
+    </event>
+
+    <!-- event for customer registration -->
+    <event name="customer_register_success">
+        <observer name="customer_registered" instance="CleverReach\CleverReachIntegration\Observer\CustomerRegisteredObserver"/>
+    </event>
+
+    <!-- event for customer create/update by admin -->
+    <event name="adminhtml_customer_save_after">
+        <observer name="customer_saved_by_admin" instance="CleverReach\CleverReachIntegration\Observer\CustomerSavedByAdminObserver"/>
+    </event>
+
+    <!-- event for customer create/update by admin -->
+    <event name="customer_address_save_commit_after">
+        <observer name="customer_address_saved" instance="CleverReach\CleverReachIntegration\Observer\CustomerAddressSavedObserver"/>
+    </event>
+
+    <!-- event for customer group created/updated -->
+    <event name="customer_group_save_after">
+        <observer name="customer_group_saved" instance="CleverReach\CleverReachIntegration\Observer\CustomerGroupSavedObserver" />
+    </event>
+
+    <!-- event for customer group created/updated before-->
+    <event name="customer_group_save_before">
+        <observer name="customer_group_saved" instance="CleverReach\CleverReachIntegration\Observer\CustomerGroupSavedObserver" />
+    </event>
+
+    <!-- event for customer group deleted -->
+    <event name="customer_group_delete_before">
+        <observer name="customer_group_deleted" instance="CleverReach\CleverReachIntegration\Observer\CustomerGroupDeletedObserver" />
+    </event>
+
+    <!-- event for customer group deleted after -->
+    <event name="customer_group_delete_after">
+        <observer name="customer_group_deleted" instance="CleverReach\CleverReachIntegration\Observer\CustomerGroupDeletedObserver" />
+    </event>
+
+    <!-- event for website deleted -->
+    <event name="website_delete_before">
+        <observer name="website_deleted" instance="CleverReach\CleverReachIntegration\Observer\WebsiteDeletedObserver" />
+    </event>
+
+    <!-- event for customer group deleted after -->
+    <event name="website_delete_after">
+        <observer name="website_deleted" instance="CleverReach\CleverReachIntegration\Observer\WebsiteDeletedObserver" />
+    </event>
+
+    <!-- event for shop group created/updated event after-->
+    <event name="website_save_after">
+        <observer name="shop_group_saved" instance="CleverReach\CleverReachIntegration\Observer\WebsiteSavedObserver" />
+    </event>
+
+    <!-- event for shop group created/updated event before -->
+    <event name="website_save_before">
+        <observer name="shop_group_saved" instance="CleverReach\CleverReachIntegration\Observer\WebsiteSavedObserver" />
+    </event>
+
+    <!-- event for create order -->
+    <event name="sales_order_save_commit_after">
+        <observer name="order_created" instance="CleverReach\CleverReachIntegration\Observer\OrderCreatedObserver" />
+    </event>
+
+    <!-- event for storing crmailing -->
+    <event name="catalog_controller_product_view">
+        <observer name="store_crmailing" instance="CleverReach\CleverReachIntegration\Observer\ProductViewObserver" />
+    </event>
+</config>

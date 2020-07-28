@@ -1,0 +1,189 @@
+<?php
+$dashboardConfig = $block->getDashboardConfig();
+/**
+ * Path to CleverReach logo
+ */
+$logoUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/logo_cleverreach.svg');
+$iconUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/icon_quickstartmailing.svg');
+$dashboardLogo = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/cr_logo_transparent_107px.png');
+
+function buildSegments($dashboardConfig)
+{
+    $segmentList = '';
+    foreach ($dashboardConfig['segments'] as $index => $segment) {
+        if ($index === 3) {
+            $segmentList .= '<div class="value">...</div>';
+            break;
+        }
+
+        $first = ($index + 1) . ') ' . substr($segment, 0, -3);
+        $last = substr($segment, - 3);
+        $segmentList .= '<div class="value" title="' . $segment
+            . '"><span class="firstPart">' . $first . '</span><span class="lastPart">' . $last . '</span></div>';
+    }
+
+    return $segmentList;
+}
+?>
+
+<img class="cr-logo" src="<?php echo $block->escapeQuote($logoUrl); ?>"/>
+
+<div class="cr-container">
+
+    <input type="hidden" id="cr-build-email-url" value="<?php echo $dashboardConfig['buildEmailUrl']; ?>">
+    <input type="hidden" id="cr-build-first-email-url" value="<?php echo $dashboardConfig['buildFirstEmailUrl']; ?>">
+    <input type="hidden" id="cr-retry-sync-url" value="<?php echo $dashboardConfig['retrySyncUrl']; ?>">
+
+
+    <div class="cr-tab-wrapper">
+        <div class="cr-dashboard-tab-wrapper">
+            <button class="cr-dashboard-tab"><?php echo $block->escapeQuote(__('Dashboard')); ?></button>
+        </div>
+        <div class="cr-pull-right">
+            <a href="<?php echo $block->escapeQuote($dashboardConfig['helpUrl']); ?>"
+               target="_blank"><?php echo $block->escapeQuote(__('Help & Support')); ?></a>
+            <p class="cr-id"><?php echo $block->escapeQuote(__(
+                'CleverReach® ID: %1',
+                $dashboardConfig['recipientId']
+            )); ?></p>
+        </div>
+    </div>
+
+    <?php
+    if ($dashboardConfig['isInitialSyncTaskFailed']) {
+        ?>
+        <div class="cr-content-window-wrapper">
+            <div class="cr-content-window">
+                <img class="cr-icon" src="<?php echo $iconUrl; ?>"/>
+                <h3>
+                    <?php
+                    echo $block->escapeQuote(__('An error occurred!'));
+                    ?>
+                </h3>
+                <div class="cr-dashboard-text-wrapper cr-main-text">
+                    <?php
+                    echo $block->escapeQuote(__('Error description:') . ' ' . $dashboardConfig['initialSyncTaskFailureMessage']) .
+                        '</br>' . $block->escapeQuote(__('For more details please contact')) . ' ' .
+                        '<a target="_blank" href=' . $block->escapeQuote($dashboardConfig['helpUrl']) . '>' . $block->escapeQuote(__('Help & Support')) . '</a>';
+                    ?>
+                </div>
+                <?php
+                echo '<button class="cr-action-buttons-wrapper cr-primary" id="cr-retrySync">';
+                echo $block->escapeQuote(__('Retry synchronization now'));
+                echo '</button>';
+                ?>
+            </div>
+        </div>
+        <?php
+    } else {
+        ?>
+        <div class="cr-dashboard-block">
+            <div class="cr-dashboard-container <?php echo $dashboardConfig['importClass'] ?>">
+                <?php if (!$dashboardConfig['importStatisticsDisplayed']) { ?>
+                    <!-- INITIAL SYNC IMPORT -->
+                    <div class="cr-import">
+                        <svg viewBox="0 0 400 400" preserveAspectRatio="xMinYMin meet"
+                             style="stroke: none; fill: url('#cr-gradient')">
+                            <path d="M0,130 C150,180 200,60 400,120 L400,00 L0,0 Z" style="stroke: none;"></path>
+                            <defs>
+                                <linearGradient id="cr-gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#0AE355"></stop>
+                                    <stop offset="72%" stop-color="#00C526"></stop>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <div class="cr-import-successful">
+                            <?php echo $block->escapeQuote(__('Import was successful!')); ?>
+                        </div>
+                        <div class="cr-success-circle">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="cr-report-content">
+                            <div class="cr-recipients">
+                                <div class="cr-dashboard-report-icon-large">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <div class="cr-dashboard-concrete-report">
+                                    <div class="title">
+                                        <?php echo $block->escapeQuote(__('Recipients')); ?>
+                                    </div>
+                                    <div class="value">
+                                        <?php
+                                        echo $dashboardConfig['numberOfSyncedRecipients'];
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cr-recipient-list">
+                                <div class="cr-dashboard-report-icon-large">
+                                    <i class="fa fa-clipboard-list"></i>
+                                </div>
+                                <div class="cr-dashboard-concrete-report">
+                                    <div class="title">
+                                        <?php echo $block->escapeQuote(__('Recipient list')); ?>
+                                    </div>
+                                    <div class="value">
+                                        <?php echo $block->escapeQuote($dashboardConfig['integrationName']); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cr-segments">
+                                <div class="cr-dashboard-report-icon-small">
+                                    <i class="fa fa-tag"></i>
+                                </div>
+                                <div class="cr-dashboard-concrete-report">
+                                    <div class="title">
+                                        <?php echo $block->escapeQuote(__('Segments')); ?>
+                                    </div>
+                                    <?php
+                                        echo buildSegments($dashboardConfig);
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cr-gdpr">
+                            <a href="<?php echo $block->escapeQuote(__($dashboardConfig['gdprUrl'])); ?>" target="_blank"
+                               class="cr-link">
+                                <i>
+                                    <?php echo $block->escapeQuote(__('Observe notes on GDPR!')); ?>
+                                </i>
+                            </a>
+                        </div>
+                    </div>
+                <?php } ?>
+                <!-- /INITIAL SYNC REPORT -->
+
+                <!-- DASHBOARD CARD -->
+                <div class="cr-create">
+                    <img class="cr-dashboard-logo"
+                         src="<?php echo $block->escapeQuote($dashboardLogo); ?>" alt="Logo">
+                    <h3>
+                        <?php
+                        echo $block->escapeQuote(__('Targeted email marketing for more revenue!'));
+                        ?>
+                    </h3>
+                    <div class="cr-dashboard-text-wrapper cr-main-text">
+                        <?php
+                        echo $block->escapeQuote(__('Create appealing emails to showcase your products to your customers'));
+                        ?>
+                    </div>
+                    <div class="cr-button-container">
+                        <?php
+                        echo '<button class="cr-action-buttons-wrapper cr-primary" id="cr-buildEmail">';
+                        if ($dashboardConfig['isFirstEmailBuild']) {
+                            echo $block->escapeQuote(__('Create your next newsletter now! →'));
+                        } else {
+                            echo $block->escapeQuote(__('Create your first newsletter →'));
+                        }
+                        echo '</button>';
+                        ?>
+                    </div>
+                </div>
+                <!-- /DASHBOARD CARD -->
+
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+</div>

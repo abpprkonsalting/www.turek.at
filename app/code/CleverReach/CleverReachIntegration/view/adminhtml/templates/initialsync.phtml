@@ -1,0 +1,100 @@
+<?php
+$initialSyncConfig = $block->getInitialSyncConfig();
+/**
+ * Path to CleverReach logo
+ */
+$logoUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/logo_cleverreach.svg');
+?>
+
+<img class="cr-logo" src="<?php echo $block->escapeQuote($logoUrl); ?>"/>
+
+<div class="cr-container">
+
+    <input type="hidden" id="cr-admin-status-check-url" value="<?php echo $initialSyncConfig['statusCheckUrl']; ?>">
+
+    <div data-task-list-panel>
+        <ul class="cr-list-group">
+            <li class="cr-list-group-item disabled" data-task="subscriberlist">
+                <div class="cr-content-window-wrapper">
+                    <div class="cr-content-window">
+                        <i class="cr-icofont cr-icofont-circle">
+                            <i class="cr-icofont cr-icofont-2x cr-icofont-circle" aria-hidden="true" data-status="subscriberlist"></i>
+                        </i>
+                        <div class="cr-item">
+                            <div class="cr-item-text">
+                            <?php
+                                echo $block->escapeQuote(__('Create recipient list in CleverReach®'));
+                            ?>
+                            </div>
+                            <div class="cr-item-badge">
+                                <span data-progress="subscriberlist">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="cr-list-group-item disabled" data-task="add_fields">
+                <div class="cr-content-window-wrapper">
+                    <div class="cr-content-window">
+                        <i class="cr-icofont cr-icofont-circle">
+                            <i class="cr-icofont cr-icofont-2x cr-icofont-circle" aria-hidden="true" data-status="add_fields"></i>
+                        </i>
+                        <div class="cr-item">
+                            <div class="cr-item-text">
+                            <?php
+                                echo $block->escapeQuote(__('Add data fields, segments and tags to recipient list'));
+                            ?>
+                            </div>
+                            <div class="cr-item-badge">
+                                <span data-progress="add_fields">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="cr-list-group-item disabled" data-task="recipient_sync">
+                <div class="cr-content-window-wrapper">
+                    <div class="cr-content-window">
+                        <i class="cr-icofont cr-icofont-circle">
+                            <i class="cr-icofont cr-icofont-2x cr-icofont-circle" aria-hidden="true" data-status="recipient_sync"></i>
+                        </i>
+                        <div class="cr-item">
+                            <div class="cr-item-text">
+                            <?php
+                                echo $initialSyncConfig['recipientSyncTaskTitle'];
+                            ?>
+                            </div>
+                            <div class="cr-item-badge">
+                                <span data-progress="recipient_sync">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cr-content-window-wrapper hidden" data-success-panel>
+        <div class="cr-content-window">
+            <div class="dashboard">
+                <h1>
+                    <?php
+                        echo $block->escapeQuote(__('Well done!'));
+                    ?>
+                </h1>
+                <p data-success-panel-message>
+                    <?php
+                        echo $block->escapeQuote(__('%s recipients have been successfully added to the list %s in your CleverReach® account.'));
+                    ?>
+                </p>
+                <button type="button" class="cr-primary" data-success-panel-go-to-dashboard-button data-success-panel-autoredirect-text>
+                    <?php
+                        echo $block->escapeQuote(__('You will be directed to your plugin dashboard in ... %d sec.'));
+                    ?>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+

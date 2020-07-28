@@ -1,0 +1,52 @@
+<?php
+$refreshConfig = $block->getRefreshConfig();
+/**
+ * Path to CleverReach logo
+ */
+$logoUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/logo_cleverreach.svg');
+$iconUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/icon_' . __('hello'). '.png');
+?>
+
+<img class="cr-logo" src="<?php echo $block->escapeQuote($logoUrl); ?>"/>
+
+<div class="cr-container">
+
+    <input type="hidden" id="cr-auth-url" value="<?php echo $refreshConfig['authUrl']; ?>">
+    <input type="hidden" id="cr-check-status-url" value="<?php echo $refreshConfig['checkStatusUrl']; ?>">
+
+    <div class="cr-loader-big">
+        <span class="cr-loader"></span>
+    </div>
+
+    <div class="cr-connecting">
+        <span>
+            <?php
+            echo $block->escapeQuote(__('Connecting...'));
+            ?>
+        </span>
+    </div>
+
+    <div class="cr-content-window-wrapper">
+        <div class="cr-content-window">
+            <img class="cr-welcome-icon" src="<?php echo $iconUrl; ?>"/>
+            <h3>
+                <?php
+                echo $block->escapeQuote(__('Error: token expired'));
+                ?>
+            </h3>
+            <div class="cr-dashboard-text-wrapper cr-main-text">
+                <?php
+                echo __('It seems that it was a long time since any event happened inside your Magento and CleverReach® access token expired. In order to let system synchronize data for you, you\'ll have to authenticate again with CleverReach® <b>ID %1</b>. If you want to use different CleverReach® account, you need to reinstall this extension.', $refreshConfig['crId']);
+                ?>
+            </div>
+            <div class="cr-action-buttons-wrapper">
+                <button class="cr-primary" id="cr-log-account">
+                    <?php
+                    echo $block->escapeQuote(__('Authenticate now'));
+                    ?>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>

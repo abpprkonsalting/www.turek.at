@@ -1,0 +1,15 @@
+.cr-content-window-wrapper .cr-content-window .cr-action-buttons-wrapper {
+    padding: 35px 35px 35px 35px;
+}
+
+.cr-content-window-wrapper .cr-content-window .cr-primary {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.cr-content-window-wrapper .cr-content-window .cr-secondary {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

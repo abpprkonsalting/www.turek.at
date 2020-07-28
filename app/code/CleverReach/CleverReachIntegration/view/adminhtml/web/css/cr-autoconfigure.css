@@ -1,0 +1,26 @@
+.cr-container .cr-loader-big {
+    display: flex;
+}
+
+.cr-container .cr-loader-big.hidden {
+    display: none;
+}
+
+.cr-container .cr-connecting {
+    display: block;
+}
+
+.cr-content-window-wrapper .cr-content-window .cr-action-buttons-wrapper {
+    margin-top: 20px;
+}
+
+.cr-content-window-wrapper .cr-content-window {
+    background: #FFFFFF;
+    border: 2px solid #EC6702;
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    width: 100%;
+    max-width: 740px;
+    display: inline-block;
+    padding: 60px 0 80px 0;
+}

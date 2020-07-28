@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 CleverReach. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Backend/etc/menu.xsd">
+    <menu>
+        <add id="logeecom::base" title="CleverReach" module="CleverReach_CleverReachIntegration" sortOrder="51" resource="CleverReach_CleverReachIntegration::cleverreach" action="cleverreach/content/dashboard" />
+    </menu>
+</config>

@@ -1,0 +1,53 @@
+<?php
+$autoConfigureConfig = $block->getAutoConfigureConfig();
+/**
+ * Path to CleverReach logo
+ */
+$logoUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/logo_cleverreach.svg');
+$iconUrl = $block->getViewFileUrl('CleverReach_CleverReachIntegration::images/icon_hello.png');
+?>
+
+<img class="cr-logo" src="<?php echo $block->escapeQuote($logoUrl); ?>"/>
+
+<div class="cr-container">
+
+    <input type="hidden" id="cr-test-server-configuration-url" value="<?php echo $autoConfigureConfig['testServerConfigurationUrl']; ?>">
+    <input type="hidden" id="cr-check-status-url" value="<?php echo $autoConfigureConfig['checkStatusUrl']; ?>">
+    <input type="hidden" id="cr-autoconfigure-failed" value="<?php echo $autoConfigureConfig['autoconfigureFailed']; ?>">
+
+    <div class="cr-loader-big <?php echo $autoConfigureConfig['autoconfigureFailed'] ? 'hidden' : ''; ?>">
+        <span class="cr-loader"></span>
+    </div>
+
+    <div class="cr-connecting <?php echo $autoConfigureConfig['autoconfigureFailed'] ? 'hidden' : ''; ?>">
+        <span>
+            <?php
+                echo $block->escapeQuote(__('Auto configuring...'));
+            ?>
+        </span>
+    </div>
+
+    <div class="cr-content-window-wrapper <?php echo !$autoConfigureConfig['autoconfigureFailed'] ? 'hidden' : ''; ?>">
+        <div class="cr-content-window">
+            <img class="cr-icon" src="<?php echo $iconUrl; ?>"/>
+            <h3>
+                <?php
+                    echo $block->escapeQuote(__('An error occurred!'));
+                ?>
+            </h3>
+            <div class="cr-dashboard-text-wrapper cr-main-text">
+                <?php
+                    echo $block->escapeQuote(__('Error description:')) . $block->escapeQuote(__('Auto configuration failed.')) .
+                        '</br>' . $block->escapeQuote(__('For more details please contact')) . ' ' .
+                        '<a target="_blank" href='.$block->escapeQuote($autoConfigureConfig['helpUrl']).'>' . $block->escapeQuote(__('Help & Support')) . '</a>';
+                ?>
+            </div>
+            <?php
+                echo '<button class="cr-action-buttons-wrapper cr-primary" id="cr-retryTest">';
+                echo $block->escapeQuote(__('Retry auto configuration now'));
+                echo'</button>';
+            ?>
+        </div>
+    </div>
+
+</div>

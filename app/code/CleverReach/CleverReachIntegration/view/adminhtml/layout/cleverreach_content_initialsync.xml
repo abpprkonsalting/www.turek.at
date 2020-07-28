@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 CleverReach. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.initial-sync.js"/>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.status-checker.js"/>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.autoredirect.js"/>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.ajax.js"/>
+        <css src="CleverReach_CleverReachIntegration::css/cr-initial-sync.css"/>
+        <css src="CleverReach_CleverReachIntegration::css/cr-icofont.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="CleverReach\CleverReachIntegration\Block\Adminhtml\Content\Initialsync" name="cleverreach_block_adminhtml_initialsync" template="CleverReach_CleverReachIntegration::initialsync.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 CleverReach. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="CleverReach\CleverReachIntegration\Helper\InitializerInterface" type="CleverReach\CleverReachIntegration\Helper\Initializer" />
+    <preference for="CleverReach\CleverReachIntegration\IntegrationCore\Infrastructure\Interfaces\Required\HttpClient" type="CleverReach\CleverReachIntegration\Services\Infrastructure\HttpClientService" />
+    <preference for="CleverReach\CleverReachIntegration\IntegrationCore\Infrastructure\Interfaces\Required\ShopLoggerAdapter" type="CleverReach\CleverReachIntegration\Services\Infrastructure\LoggerService" />
+    <preference for="CleverReach\CleverReachIntegration\IntegrationCore\Infrastructure\Interfaces\Required\AsyncProcessStarter" type="CleverReach\CleverReachIntegration\Services\Infrastructure\AsyncProcessStarterService" />
+    <preference for="CleverReach\CleverReachIntegration\IntegrationCore\Infrastructure\Interfaces\Required\Configuration" type="CleverReach\CleverReachIntegration\Services\Infrastructure\ConfigService" />
+    <preference for="CleverReach\CleverReachIntegration\IntegrationCore\BusinessLogic\Interfaces\OrderItems" type="CleverReach\CleverReachIntegration\Services\BusinessLogic\OrderItemsService" />
+</config>

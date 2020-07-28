@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2019 CleverReach. All rights reserved.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.welcome.js"/>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.authorization.js"/>
+        <link src="CleverReach_CleverReachIntegration::js/cleverreach.ajax.js"/>
+        <css src="CleverReach_CleverReachIntegration::css/cr-welcome.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="CleverReach\CleverReachIntegration\Block\Adminhtml\Content\Welcome" name="cleverreach_block_adminhtml_welcome"
+                   template="CleverReach_CleverReachIntegration::welcome.phtml"/>
+        </referenceContainer>
+    </body>
+</page>
