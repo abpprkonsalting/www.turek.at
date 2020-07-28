@@ -221,6 +221,7 @@ return [
         'Magecomp_Instagramshoppable' => 1,
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
-        'WeltPixel_Backend' => 1
+        'WeltPixel_Backend' => 1,
+        'WeltPixel_GoogleTagManager' => 1
     ]
 ];
