@@ -108,7 +108,7 @@ CREATE TABLE `admin_user` (
 
 LOCK TABLES `admin_user` WRITE;
 /*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
-INSERT INTO `admin_user` VALUES (1,'admin','admin','abpprkonsalting@gmail.com','admin','5ae608fba998d96231930baba0c2f08ed8eead4c814ab4945e2fc2b60bd1a5bd:ROiX1F4dHyQSESCF:2','2020-07-28 03:30:23','2020-07-28 19:55:52','2020-07-28 19:55:52',6,0,1,NULL,NULL,NULL,'en_US',0,NULL,NULL,NULL);
+INSERT INTO `admin_user` VALUES (1,'admin','admin','abpprkonsalting@gmail.com','admin','5ae608fba998d96231930baba0c2f08ed8eead4c814ab4945e2fc2b60bd1a5bd:ROiX1F4dHyQSESCF:2','2020-07-28 03:30:23','2020-07-28 20:28:38','2020-07-28 20:28:38',7,0,1,NULL,NULL,NULL,'en_US',0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -131,7 +131,7 @@ CREATE TABLE `admin_user_session` (
   KEY `ADMIN_USER_SESSION_SESSION_ID` (`session_id`),
   KEY `ADMIN_USER_SESSION_USER_ID` (`user_id`),
   CONSTRAINT `ADMIN_USER_SESSION_USER_ID_ADMIN_USER_USER_ID` FOREIGN KEY (`user_id`) REFERENCES `admin_user` (`user_id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COMMENT='Admin User sessions table';
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COMMENT='Admin User sessions table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -140,7 +140,7 @@ CREATE TABLE `admin_user_session` (
 
 LOCK TABLES `admin_user_session` WRITE;
 /*!40000 ALTER TABLE `admin_user_session` DISABLE KEYS */;
-INSERT INTO `admin_user_session` VALUES (1,'9oc8qt4l23qqr5d74f371n6ef1',1,1,'2020-07-28 03:32:16','2020-07-28 03:45:11','192.168.88.42'),(4,'e237jg6l4op7q1pb395n6k8pos',1,1,'2020-07-28 18:49:38','2020-07-28 19:01:27','192.168.88.252'),(7,'ihr0523gl30bnshdda597ev3q8',1,2,'2020-07-28 19:24:54','2020-07-28 19:55:29','192.168.88.252'),(10,'q74uovh9h806ummk8676skv7gc',1,2,'2020-07-28 19:55:29','2020-07-28 19:55:41','192.168.88.252'),(13,'ss2vd17q40viod4gpo1j4q2n8v',1,2,'2020-07-28 19:55:41','2020-07-28 19:56:08','192.168.88.252'),(16,'97h5tkipaubfkhm003eq1m6db7',1,1,'2020-07-28 19:56:08','2020-07-28 20:08:06','192.168.88.252');
+INSERT INTO `admin_user_session` VALUES (1,'9oc8qt4l23qqr5d74f371n6ef1',1,1,'2020-07-28 03:32:16','2020-07-28 03:45:11','192.168.88.42'),(4,'e237jg6l4op7q1pb395n6k8pos',1,1,'2020-07-28 18:49:38','2020-07-28 19:01:27','192.168.88.252'),(7,'ihr0523gl30bnshdda597ev3q8',1,2,'2020-07-28 19:24:54','2020-07-28 19:55:29','192.168.88.252'),(10,'q74uovh9h806ummk8676skv7gc',1,2,'2020-07-28 19:55:29','2020-07-28 19:55:41','192.168.88.252'),(13,'ss2vd17q40viod4gpo1j4q2n8v',1,2,'2020-07-28 19:55:41','2020-07-28 19:56:08','192.168.88.252'),(16,'97h5tkipaubfkhm003eq1m6db7',1,1,'2020-07-28 19:56:08','2020-07-28 20:08:06','192.168.88.252'),(19,'63gmlkb2d5p3ot0pen18oubjj2',1,1,'2020-07-28 20:30:10','2020-07-28 20:36:25','192.168.88.252');
 /*!40000 ALTER TABLE `admin_user_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -4442,7 +4442,7 @@ CREATE TABLE `customer_visitor` (
   PRIMARY KEY (`visitor_id`),
   KEY `CUSTOMER_VISITOR_CUSTOMER_ID` (`customer_id`),
   KEY `CUSTOMER_VISITOR_LAST_VISIT_AT` (`last_visit_at`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='Visitor Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -4451,7 +4451,7 @@ CREATE TABLE `customer_visitor` (
 
 LOCK TABLES `customer_visitor` WRITE;
 /*!40000 ALTER TABLE `customer_visitor` DISABLE KEYS */;
-INSERT INTO `customer_visitor` VALUES (1,NULL,'66aeb342vv4kcgjq4svv1qqav8','2020-07-28 03:37:00'),(4,NULL,'evrhc664r6iepk6knibg79gr0s','2020-07-28 03:37:14'),(7,NULL,'ie06l55dqt7tlibop9jebpb3rv','2020-07-28 18:49:44');
+INSERT INTO `customer_visitor` VALUES (1,NULL,'66aeb342vv4kcgjq4svv1qqav8','2020-07-28 03:37:00'),(4,NULL,'evrhc664r6iepk6knibg79gr0s','2020-07-28 03:37:14'),(7,NULL,'ie06l55dqt7tlibop9jebpb3rv','2020-07-28 18:49:44'),(10,NULL,'6poq2l84o0ubjn4ec5tcg0b905','2020-07-28 20:34:48');
 /*!40000 ALTER TABLE `customer_visitor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -6217,7 +6217,7 @@ CREATE TABLE `indexer_state` (
 
 LOCK TABLES `indexer_state` WRITE;
 /*!40000 ALTER TABLE `indexer_state` DISABLE KEYS */;
-INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 20:07:19','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 20:07:19','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
+INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 20:31:50','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 20:31:50','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
 /*!40000 ALTER TABLE `indexer_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11386,7 +11386,7 @@ CREATE TABLE `setup_module` (
 
 LOCK TABLES `setup_module` WRITE;
 /*!40000 ALTER TABLE `setup_module` DISABLE KEYS */;
-INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('CleverReach_CleverReachIntegration','2.2.1','2.2.1'),('Customweb_Base','1.0.1','1.0.1'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Etron_DSGVO','2.0.0','2.0.0'),('Etron_Gateway','1.1.0','1.1.0'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Lillik_PriceDecimal','1.0.4','1.0.4'),('Magecomp_Instagramshoppable','1.0.0','1.0.0'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MagePsycho_Easypathhints','1.1.0','1.1.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0'),('WeltPixel_Backend','1.1.1','1.1.1'),('WeltPixel_GoogleTagManager','1.0.0','1.0.0'),('WeltPixel_MobileDetect','1.1.0','1.1.0');
+INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('CleverReach_CleverReachIntegration','2.2.1','2.2.1'),('Customweb_Base','1.0.1','1.0.1'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Etron_DSGVO','2.0.0','2.0.0'),('Etron_Gateway','1.1.0','1.1.0'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Lillik_PriceDecimal','1.0.4','1.0.4'),('Magecomp_Instagramshoppable','1.0.0','1.0.0'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MagePsycho_Easypathhints','1.1.0','1.1.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0'),('WeltPixel_Backend','1.1.1','1.1.1'),('WeltPixel_GoogleTagManager','1.0.0','1.0.0'),('WeltPixel_MobileDetect','1.1.0','1.1.0'),('WeltPixel_OwlCarouselSlider','1.0.5','1.0.5');
 /*!40000 ALTER TABLE `setup_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12642,6 +12642,105 @@ LOCK TABLES `weltpixel_license` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `weltpixel_owlcarouselslider_banners`
+--
+
+DROP TABLE IF EXISTS `weltpixel_owlcarouselslider_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `weltpixel_owlcarouselslider_banners` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Banner Id',
+  `status` smallint(6) NOT NULL DEFAULT 0 COMMENT 'Banner Status',
+  `title` varchar(255) NOT NULL DEFAULT '' COMMENT 'Banner Title',
+  `show_title` smallint(6) DEFAULT 0 COMMENT 'Show Banner Title',
+  `description` text DEFAULT '' COMMENT 'Banner Description',
+  `show_description` smallint(6) DEFAULT 0 COMMENT 'Show Banner Description',
+  `banner_type` smallint(6) DEFAULT 0 COMMENT 'Banner Type',
+  `slider_id` int(11) DEFAULT NULL COMMENT 'Slider Id',
+  `url` varchar(255) DEFAULT '' COMMENT 'Banner Url',
+  `target` varchar(50) DEFAULT '_blank' COMMENT 'Banner Url Target',
+  `video` text DEFAULT '' COMMENT 'Banner Video',
+  `image` varchar(255) DEFAULT NULL COMMENT 'Banner Image',
+  `custom` text DEFAULT '' COMMENT 'Banner Custom HTML',
+  `alt_text` varchar(255) DEFAULT NULL COMMENT 'Banner Image Alt Text',
+  `button_text` varchar(255) DEFAULT NULL COMMENT 'Button Text',
+  `custom_content` text DEFAULT NULL COMMENT 'Custom Content',
+  `custom_css` text DEFAULT NULL COMMENT 'Custom CSS',
+  `valid_from` datetime DEFAULT NULL COMMENT 'Banner Valid From',
+  `valid_to` datetime DEFAULT NULL COMMENT 'Banner Valid To',
+  `sort_order` int(11) DEFAULT NULL COMMENT 'Banner Sort Ordert',
+  `ga_promo_id` text NOT NULL DEFAULT '' COMMENT 'GA Promo ID',
+  `ga_promo_name` text NOT NULL DEFAULT '' COMMENT 'GA Promo Name',
+  `ga_promo_creative` text NOT NULL DEFAULT '' COMMENT 'GA Promo Creative',
+  `ga_promo_position` text NOT NULL DEFAULT '' COMMENT 'GA Promo Position',
+  PRIMARY KEY (`id`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_BANNERS_ID` (`id`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_BANNERS_STATUS` (`status`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_BANNERS_SLIDER_ID` (`slider_id`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_BANNERS_VALID_FROM` (`valid_from`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_BANNERS_VALID_TO` (`valid_to`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='weltpixel_owlcarouselslider_banners';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `weltpixel_owlcarouselslider_banners`
+--
+
+LOCK TABLES `weltpixel_owlcarouselslider_banners` WRITE;
+/*!40000 ALTER TABLE `weltpixel_owlcarouselslider_banners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `weltpixel_owlcarouselslider_banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `weltpixel_owlcarouselslider_sliders`
+--
+
+DROP TABLE IF EXISTS `weltpixel_owlcarouselslider_sliders`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `weltpixel_owlcarouselslider_sliders` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `status` smallint(6) DEFAULT 0 COMMENT 'Slider Status',
+  `title` varchar(255) NOT NULL DEFAULT 'Custom Slider' COMMENT 'Slider Title',
+  `show_title` smallint(6) DEFAULT 0 COMMENT 'Show Title',
+  `slider_content` text DEFAULT '' COMMENT 'Slider Content',
+  `nav` smallint(6) DEFAULT 1 COMMENT 'Navigation',
+  `dots` smallint(6) DEFAULT 1 COMMENT 'Dots',
+  `center` smallint(6) DEFAULT 1 COMMENT 'Center',
+  `items` int(11) DEFAULT 1 COMMENT 'Items',
+  `loop` smallint(6) DEFAULT 1 COMMENT 'Loop',
+  `margin` int(11) DEFAULT 0 COMMENT 'Margin',
+  `stagePadding` int(11) DEFAULT 0 COMMENT 'StagePadding',
+  `lazyLoad` smallint(6) DEFAULT 1 COMMENT 'LazyLoad',
+  `transition` varchar(255) DEFAULT 'fadeOut' COMMENT 'Transition',
+  `autoplay` smallint(6) DEFAULT 1 COMMENT 'Autoplay',
+  `autoplayTimeout` int(11) DEFAULT 3000 COMMENT 'AutoplayTimeout',
+  `autoplayHoverPause` smallint(6) DEFAULT 1 COMMENT 'AutoplayHoverPause',
+  `autoHeight` smallint(6) DEFAULT 1 COMMENT 'AutoHeight',
+  `nav_brk1` smallint(6) DEFAULT 1 COMMENT 'Breakpoint 1 Nav',
+  `items_brk1` int(11) DEFAULT 1 COMMENT 'Breakpoint 1 Items',
+  `nav_brk2` smallint(6) DEFAULT 1 COMMENT 'Breakpoint 2 Nav',
+  `items_brk2` int(11) DEFAULT 1 COMMENT 'Breakpoint 2 Items',
+  `nav_brk3` smallint(6) DEFAULT 1 COMMENT 'Breakpoint 3 Nav',
+  `items_brk3` int(11) DEFAULT 1 COMMENT 'Breakpoint 3 Items',
+  `nav_brk4` smallint(6) DEFAULT 1 COMMENT 'Breakpoint 4 Nav',
+  `items_brk4` int(11) DEFAULT 1 COMMENT 'Breakpoint 4 Items',
+  PRIMARY KEY (`id`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_SLIDERS_ID` (`status`),
+  KEY `WELTPIXEL_OWLCAROUSELSLIDER_SLIDERS_STATUS` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='weltpixel_owlcarouselslider_sliders';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `weltpixel_owlcarouselslider_sliders`
+--
+
+LOCK TABLES `weltpixel_owlcarouselslider_sliders` WRITE;
+/*!40000 ALTER TABLE `weltpixel_owlcarouselslider_sliders` DISABLE KEYS */;
+/*!40000 ALTER TABLE `weltpixel_owlcarouselslider_sliders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `widget`
 --
 
@@ -12874,4 +12973,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-28 16:09:26
+-- Dump completed on 2020-07-28 16:36:42

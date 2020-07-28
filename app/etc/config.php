@@ -223,6 +223,7 @@ return [
         'Vertex_Tax' => 1,
         'WeltPixel_Backend' => 1,
         'WeltPixel_GoogleTagManager' => 1,
-        'WeltPixel_MobileDetect' => 1
+        'WeltPixel_MobileDetect' => 1,
+        'WeltPixel_OwlCarouselSlider' => 1
     ]
 ];
