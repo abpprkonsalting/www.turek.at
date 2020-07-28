@@ -3561,6 +3561,90 @@ LOCK TABLES `checkout_agreement_store` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `cleverreach_config`
+--
+
+DROP TABLE IF EXISTS `cleverreach_config`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cleverreach_config` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `configKey` varchar(255) DEFAULT NULL COMMENT 'ConfigKey',
+  `configValue` text DEFAULT NULL COMMENT 'ConfigValue',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='cleverreach_config';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cleverreach_config`
+--
+
+LOCK TABLES `cleverreach_config` WRITE;
+/*!40000 ALTER TABLE `cleverreach_config` DISABLE KEYS */;
+INSERT INTO `cleverreach_config` VALUES (1,'CLEVERREACH_TASK_RUNNER_STATUS','{\"guid\":\"\",\"timestamp\":null}'),(4,'CLEVERREACH_PRODUCT_SEARCH_PASSWORD','446a3aa60c57cee115e9ece2a8e56b06'),(7,'CLEVERREACH_IMPORT_STATISTICS_DISPLAYED','1');
+/*!40000 ALTER TABLE `cleverreach_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cleverreach_process`
+--
+
+DROP TABLE IF EXISTS `cleverreach_process`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cleverreach_process` (
+  `id` varchar(50) NOT NULL COMMENT 'Id',
+  `runner` text NOT NULL COMMENT 'Runner',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cleverreach_process';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cleverreach_process`
+--
+
+LOCK TABLES `cleverreach_process` WRITE;
+/*!40000 ALTER TABLE `cleverreach_process` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cleverreach_process` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cleverreach_queue`
+--
+
+DROP TABLE IF EXISTS `cleverreach_queue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cleverreach_queue` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Id',
+  `status` varchar(30) NOT NULL COMMENT 'Status',
+  `type` varchar(100) NOT NULL COMMENT 'Type',
+  `queueName` varchar(50) NOT NULL COMMENT 'QueueName',
+  `progress` int(11) NOT NULL DEFAULT 0 COMMENT 'Progress',
+  `retries` int(11) NOT NULL DEFAULT 0 COMMENT 'Retries',
+  `failureDescription` varchar(255) DEFAULT NULL COMMENT 'FailureDescription',
+  `serializedTask` mediumtext NOT NULL COMMENT 'SerializedTask',
+  `createTimestamp` int(11) DEFAULT NULL COMMENT 'CreateTimestamp',
+  `queueTimestamp` int(11) DEFAULT NULL COMMENT 'QueueTimestamp',
+  `lastUpdateTimestamp` int(11) DEFAULT NULL COMMENT 'LastUpdateTimestamp',
+  `startTimestamp` int(11) DEFAULT NULL COMMENT 'StartTimestamp',
+  `finishTimestamp` int(11) DEFAULT NULL COMMENT 'FinishTimestamp',
+  `failTimestamp` int(11) DEFAULT NULL COMMENT 'FailTimestamp',
+  `lastExecutionProgress` int(11) NOT NULL DEFAULT 0 COMMENT 'LastExecutionProgress',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='cleverreach_queue';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cleverreach_queue`
+--
+
+LOCK TABLES `cleverreach_queue` WRITE;
+/*!40000 ALTER TABLE `cleverreach_queue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cleverreach_queue` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cms_block`
 --
 
@@ -6106,7 +6190,7 @@ CREATE TABLE `indexer_state` (
 
 LOCK TABLES `indexer_state` WRITE;
 /*!40000 ALTER TABLE `indexer_state` DISABLE KEYS */;
-INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 03:30:23','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 03:30:23','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
+INSERT INTO `indexer_state` VALUES (1,'design_config_grid','valid','2020-07-28 18:39:16','dfe66ac8b9b2c47f84a3f3424784c074'),(4,'customer_grid','valid','2020-07-28 18:39:16','548616a2dc726a4b372797de580fe1a1'),(7,'catalog_category_product','invalid','2020-07-28 03:30:18','8717b45919ffa0135160a82a647b1425'),(10,'catalog_product_category','invalid','2020-07-28 03:30:18','ff67f9510780d3a6f64a04aeda0e0a1b'),(13,'catalogrule_rule','invalid','2020-07-28 03:30:18','572f78c455d2765edc06eae7f711dcf0'),(16,'catalog_product_attribute','invalid','2020-07-28 03:30:18','e66be65172ae92959dc346bedd9eda2f'),(19,'cataloginventory_stock','invalid','2020-07-28 03:30:18','916b2e73b9deb5c2f235ac40f2dfcd39'),(22,'inventory','invalid','2020-07-28 03:30:18','9dd8835d201d39649ca0d5d0681bdbf3'),(25,'catalogrule_product','invalid','2020-07-28 03:30:18','d307e69e132465f0cf4e081f73a75f5f'),(28,'catalog_product_price','invalid','2020-07-28 03:30:18','bf4ea43626c5fafe6921ff4ec4d01991'),(31,'catalogsearch_fulltext','valid','2020-07-28 03:30:21','a436af842902df884566cc3c5d55859e');
 /*!40000 ALTER TABLE `indexer_state` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -11204,7 +11288,7 @@ CREATE TABLE `setup_module` (
 
 LOCK TABLES `setup_module` WRITE;
 /*!40000 ALTER TABLE `setup_module` DISABLE KEYS */;
-INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0');
+INSERT INTO `setup_module` VALUES ('Amazon_Core','3.2.9','3.2.9'),('Amazon_Login','3.2.9','3.2.9'),('Amazon_Payment','3.2.9','3.2.9'),('CleverReach_CleverReachIntegration','2.2.1','2.2.1'),('Customweb_Base','1.0.1','1.0.1'),('Dotdigitalgroup_Email','3.1.2','3.1.2'),('Klarna_Core','5.1.0','5.1.0'),('Klarna_Kp','6.1.1','6.1.1'),('Klarna_Ordermanagement','5.0.2','5.0.2'),('Magento_AuthorizenetAcceptjs','1.0.0','1.0.0'),('Magento_Inventory','1.0.0','1.0.0'),('Magento_InventoryAdminUi','1.0.0','1.0.0'),('Magento_InventoryApi','1.0.0','1.0.0'),('Magento_InventoryBundleProduct','1.0.0','1.0.0'),('Magento_InventoryBundleProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryCache','1.0.0','1.0.0'),('Magento_InventoryCatalog','1.0.0','1.0.0'),('Magento_InventoryCatalogAdminUi','1.0.0','1.0.0'),('Magento_InventoryCatalogApi','1.0.0','1.0.0'),('Magento_InventoryCatalogSearch','1.0.0','1.0.0'),('Magento_InventoryConfigurableProduct','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryConfigurableProductIndexer','1.0.0','1.0.0'),('Magento_InventoryConfiguration','1.0.0','1.0.0'),('Magento_InventoryConfigurationApi','1.0.0','1.0.0'),('Magento_InventoryElasticsearch','1.0.0','1.0.0'),('Magento_InventoryExportStock','1.0.0','1.0.0'),('Magento_InventoryExportStockApi','1.0.0','1.0.0'),('Magento_InventoryGroupedProduct','1.0.0','1.0.0'),('Magento_InventoryGroupedProductAdminUi','1.0.0','1.0.0'),('Magento_InventoryGroupedProductIndexer','1.0.0','1.0.0'),('Magento_InventoryImportExport','1.0.0','1.0.0'),('Magento_InventoryIndexer','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotification','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationAdminUi','1.0.0','1.0.0'),('Magento_InventoryLowQuantityNotificationApi','1.0.0','1.0.0'),('Magento_InventoryMultiDimensionalIndexerApi','1.0.0','1.0.0'),('Magento_InventoryProductAlert','1.0.0','1.0.0'),('Magento_InventoryReservationCli','1.0.0','1.0.0'),('Magento_InventoryReservations','1.0.0','1.0.0'),('Magento_InventoryReservationsApi','1.0.0','1.0.0'),('Magento_InventorySales','1.0.0','1.0.0'),('Magento_InventorySalesAdminUi','1.0.0','1.0.0'),('Magento_InventorySalesApi','1.0.0','1.0.0'),('Magento_InventoryShipping','1.0.0','1.0.0'),('Magento_InventoryShippingAdminUi','1.0.0','1.0.0'),('Magento_InventorySourceDeductionApi','1.0.0','1.0.0'),('Magento_InventorySourceSelection','1.0.0','1.0.0'),('Magento_InventorySourceSelectionApi','1.0.0','1.0.0'),('Magento_PaypalReCaptcha','2.0.0','2.0.0'),('MSP_ReCaptcha','1.5.0','1.5.0'),('MSP_TwoFactorAuth','3.1.0','3.1.0'),('Temando_Shipping','1.5.0','1.5.0'),('Vertex_Tax','100.3.0','100.3.0');
 /*!40000 ALTER TABLE `setup_module` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -12627,8 +12711,7 @@ CREATE TABLE `wishlist_item_option` (
   PRIMARY KEY (`option_id`),
   KEY `FK_A014B30B04B72DD0EAB3EECD779728D6` (`wishlist_item_id`),
   KEY `WISHLIST_ITEM_OPTION_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` (`product_id`),
-  CONSTRAINT `FK_A014B30B04B72DD0EAB3EECD779728D6` FOREIGN KEY (`wishlist_item_id`) REFERENCES `wishlist_item` (`wishlist_item_id`) ON DELETE CASCADE,
-  CONSTRAINT `WISHLIST_ITEM_OPTION_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE
+  CONSTRAINT `FK_A014B30B04B72DD0EAB3EECD779728D6` FOREIGN KEY (`wishlist_item_id`) REFERENCES `wishlist_item` (`wishlist_item_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Wishlist Item Option Table';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -12669,4 +12752,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-07-28  0:19:17
+-- Dump completed on 2020-07-28 14:41:27
