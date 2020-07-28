@@ -207,6 +207,7 @@ return [
         'Amazon_Login' => 1,
         'Amazon_Payment' => 1,
         'CleverReach_CleverReachIntegration' => 1,
+        'Customweb_Base' => 1,
         'Dotdigitalgroup_Email' => 1,
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
