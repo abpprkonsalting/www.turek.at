@@ -211,6 +211,7 @@ return [
         'Dotdigitalgroup_Email' => 1,
         'Etron_DSGVO' => 1,
         'Etron_Gateway' => 1,
+        'Etron_Logo' => 1,
         'Klarna_Core' => 1,
         'Klarna_Ordermanagement' => 1,
         'Klarna_Kp' => 1,

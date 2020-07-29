@@ -1,0 +1,77 @@
+.action-primary {
+    background-color: #1F4E79 !important;
+    border-color: #1F4E79 !important;
+}
+
+.action-primary:hover, 
+.action-primary:active, 
+.action-primary:focus {
+    background-color: #184769 !important;
+    border-color: #184769 !important;
+}
+
+.page-actions 
+.page-actions-buttons > button.primary {
+    background-color: #1F4E79 !important;
+    border-color: #1F4E79 !important;
+}
+
+.page-actions > button.primary {
+    background-color: #1F4E79 !important;
+    border-color: #1F4E79 !important;
+}
+
+
+.page-actions
+.page-actions-buttons > button.primary:hover {
+    background-color: #184769 !important;
+    border-color: #184769 !important;
+}
+
+.page-actions
+.page-actions-buttons > button.primary:active {
+    background-color: #184769 !important;
+    border-color: #184769 !important;
+}
+
+.page-actions
+.page-actions-buttons > button.primary:focus {
+    background-color: #184769 !important;
+    border-color: #184769 !important;
+}
+
+.page-footer a{
+    color: #184769 !important;
+}
+
+.logo-img {
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: absolute;
+    top: 10px;
+    width: 120px !important;
+}
+
+.logo-footer{
+    left: 0;
+    right: 0;
+    width: 120px !important;
+}
+
+.login-header {
+    margin-top: 8rem;
+}
+
+.page-layout-admin-login 
+.admin__legend {
+    color: #1F4E79 !important;
+}
+
+.menu-wrapper .logo .logo-img{
+    width: 100%;
+}
+
+.footer-legal-system{
+    float: right !important;
+}
